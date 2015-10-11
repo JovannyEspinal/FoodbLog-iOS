@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Food Experiences-->
         <scene sceneID="Won-OC-9GV">
             <objects>
                 <collectionViewController id="Ej6-zJ-2Ib" sceneMemberID="viewController">
@@ -36,10 +36,10 @@
                             <outlet property="delegate" destination="Ej6-zJ-2Ib" id="sTd-I6-2Ys"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="VaL-yh-FpB">
+                    <navigationItem key="navigationItem" title="Food Experiences" id="VaL-yh-FpB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PxL-bH-ed2">
                             <connections>
-                                <segue destination="WBo-t4-PnB" kind="show" id="XaT-YB-ZPN"/>
+                                <segue destination="WBo-t4-PnB" kind="presentation" id="XaT-YB-ZPN"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -51,6 +51,7 @@
         <!--Food Feed-->
         <scene sceneID="QnS-3A-tqX">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g30-yV-0fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VEN-Oo-enf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ocg-qp-ihy"/>
@@ -59,14 +60,46 @@
                     <view key="view" contentMode="scaleToFill" id="1xJ-fl-E38">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-yg-ogq">
+                                <rect key="frame" x="240" y="74" width="121" height="29"/>
+                                <animations/>
+                                <segments>
+                                    <segment title="Pictures"/>
+                                    <segment title="Recipes"/>
+                                </segments>
+                            </segmentedControl>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gxx-JI-5mi">
+                                <rect key="frame" x="0.0" y="110" width="600" height="441"/>
+                                <animations/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSA-I4-JmJ">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C0x-uH-KmF">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Food Feed" id="NgG-CQ-VXD"/>
+                    <navigationItem key="navigationItem" title="Food Feed" id="NSn-da-uGB"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g30-yV-0fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="54"/>
+            <point key="canvasLocation" x="931" y="54"/>
         </scene>
         <!--CreateALog-->
         <scene sceneID="i5p-o3-1zc">
@@ -81,7 +114,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O70-xC-XVh">
-                                <rect key="frame" x="213" y="81" width="175" height="30"/>
+                                <rect key="frame" x="218" y="72" width="175" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
+                                <rect key="frame" x="205" y="110" width="200" height="180"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Restaurant" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-l0-noz">
+                                <rect key="frame" x="218" y="298" width="175" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -97,6 +140,74 @@
             </objects>
             <point key="canvasLocation" x="1661" y="-637"/>
         </scene>
+        <!--Food Image Picker-->
+        <scene sceneID="SHr-0n-67f">
+            <objects>
+                <collectionViewController id="qVk-gc-INx" userLabel="Food Image Picker" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pda-ev-Man">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xYp-hh-gra">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zvM-FM-51J">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <animations/>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="qVk-gc-INx" id="CiD-JA-wXG"/>
+                            <outlet property="delegate" destination="qVk-gc-INx" id="ODU-22-c3d"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qvo-RM-LxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="-964"/>
+        </scene>
+        <!--Restaurants-->
+        <scene sceneID="fkR-2M-0yN">
+            <objects>
+                <tableViewController id="V1r-Rg-8Tt" userLabel="Restaurants" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="yz4-fk-c4N">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6yX-jP-zQf">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yX-jP-zQf" id="Fjl-Fn-Bhc">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="V1r-Rg-8Tt" id="ZqN-uG-efc"/>
+                            <outlet property="delegate" destination="V1r-Rg-8Tt" id="8Dk-92-yKw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RaP-Uf-rAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="-255"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eQF-a3-zvi">
             <objects>
@@ -109,7 +220,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="gS1-7B-Vab" kind="relationship" relationship="viewControllers" id="eIO-nQ-oSj"/>
-                        <segue destination="VEN-Oo-enf" kind="relationship" relationship="viewControllers" id="lFD-q1-oJt"/>
+                        <segue destination="9Fv-Ue-ehK" kind="relationship" relationship="viewControllers" id="lFD-q1-oJt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5E-Ao-ZTn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,6 +246,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPL-yW-L3w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119" y="-637"/>
+        </scene>
+        <!--Food Feed-->
+        <scene sceneID="G51-hF-yYN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Fv-Ue-ehK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Food Feed" id="NgG-CQ-VXD"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hAN-nb-hhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VEN-Oo-enf" kind="relationship" relationship="rootViewController" id="QHe-ie-l6S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="okQ-9S-59P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119" y="54"/>
         </scene>
     </scenes>
 </document>
