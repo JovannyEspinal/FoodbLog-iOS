@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -123,68 +123,115 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O70-xC-XVh">
-                                <rect key="frame" x="218" y="72" width="175" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Restaurant" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-l0-noz">
+                                <rect key="frame" x="212.5" y="267" width="175" height="30"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="EBh-dc-sY5"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Restaurant" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-l0-noz">
-                                <rect key="frame" x="218" y="267" width="175" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
+                                <rect key="frame" x="201" y="121" width="198" height="125"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
-                                <rect key="frame" x="206" y="121" width="198" height="125"/>
-                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="198" id="zsA-Vf-Qee"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Recipe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgl-b7-A96">
-                                <rect key="frame" x="218" y="319" width="175" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Recipe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgl-b7-A96">
+                                <rect key="frame" x="212.5" y="319" width="175" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Enter Experience" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-H3-64W">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter Experience" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S4o-H3-64W">
                                 <rect key="frame" x="20" y="371" width="560" height="97"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="sNh-aw-bmW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro1-YH-qQS">
-                                <rect key="frame" x="105" y="169" width="91" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro1-YH-qQS">
+                                <rect key="frame" x="100" y="169" width="91" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Snap a photo"/>
                                 <connections>
                                     <action selector="snapAPhotoButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="tDI-jk-6xd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2K-lM-gcm">
-                                <rect key="frame" x="443" y="171" width="69" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2K-lM-gcm">
+                                <rect key="frame" x="409" y="169" width="142" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Search on Instagram"/>
                                 <connections>
                                     <action selector="searchAPicOnInstagramButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="kJS-3f-brI"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Food Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O70-xC-XVh">
+                                <rect key="frame" x="234" y="72" width="133" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="centerY" secondItem="Ro1-YH-qQS" secondAttribute="centerY" id="0Xb-ke-kHx"/>
                             <constraint firstItem="Ro1-YH-qQS" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leadingMargin" constant="15" id="1yG-8M-zSF"/>
+                            <constraint firstItem="Xgl-b7-A96" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="250-mo-Pp1"/>
+                            <constraint firstItem="Xgl-b7-A96" firstAttribute="top" secondItem="j5v-l0-noz" secondAttribute="bottom" constant="22" id="6Mw-SJ-tUU"/>
+                            <constraint firstItem="a2K-lM-gcm" firstAttribute="leading" secondItem="axR-oS-lFg" secondAttribute="trailing" constant="10" id="9sC-Lw-H30"/>
+                            <constraint firstItem="O70-xC-XVh" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="8" id="D7R-iY-0GW"/>
+                            <constraint firstItem="Yfc-yA-9O0" firstAttribute="top" secondItem="S4o-H3-64W" secondAttribute="bottom" constant="88" id="GYo-5y-Oya"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="GfL-jx-n6R"/>
                             <constraint firstItem="Xgl-b7-A96" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="HSu-rc-MSG"/>
+                            <constraint firstAttribute="trailing" secondItem="S4o-H3-64W" secondAttribute="trailing" constant="20" id="Kyh-rL-2CL"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="top" secondItem="O70-xC-XVh" secondAttribute="bottom" constant="19" id="Ly9-96-X0Y"/>
+                            <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="MsU-5r-RDZ"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="trailing" secondItem="zCx-ga-EMq" secondAttribute="trailingMargin" id="Obl-hP-YA7"/>
+                            <constraint firstItem="S4o-H3-64W" firstAttribute="top" secondItem="Xgl-b7-A96" secondAttribute="bottom" constant="22" id="Rx3-JJ-pNK"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="SOz-f6-FWu"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="top" secondItem="O70-xC-XVh" secondAttribute="bottom" constant="19" id="XPl-22-DF1"/>
+                            <constraint firstItem="O70-xC-XVh" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="52" id="Y4C-Pj-16i"/>
                             <constraint firstItem="j5v-l0-noz" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="ZKw-t4-n02"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leadingMargin" id="ZvF-ny-r8m"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="leading" secondItem="Ro1-YH-qQS" secondAttribute="trailing" constant="10" id="bma-TD-0C0"/>
                             <constraint firstItem="axR-oS-lFg" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="e2V-ry-QpN"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="centerY" secondItem="a2K-lM-gcm" secondAttribute="centerY" id="eW2-zO-h3O"/>
+                            <constraint firstItem="Xgl-b7-A96" firstAttribute="leading" secondItem="j5v-l0-noz" secondAttribute="leading" id="eyr-Zf-Aqm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a2K-lM-gcm" secondAttribute="trailing" constant="68" id="fj1-h2-Ity"/>
+                            <constraint firstItem="S4o-H3-64W" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leading" constant="20" id="hgm-i2-gwn"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="kJX-wc-lBv"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="lRQ-Tl-mp0"/>
                             <constraint firstItem="Ro1-YH-qQS" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="o3q-Qr-lQo"/>
                             <constraint firstItem="a2K-lM-gcm" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="pwO-yz-f83"/>
+                            <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="rJS-44-Zk1"/>
+                            <constraint firstItem="j5v-l0-noz" firstAttribute="top" secondItem="axR-oS-lFg" secondAttribute="bottom" constant="21" id="yby-0X-BOu"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1yG-8M-zSF"/>
+                                <exclude reference="o3q-Qr-lQo"/>
+                                <exclude reference="SOz-f6-FWu"/>
+                                <exclude reference="XPl-22-DF1"/>
+                                <exclude reference="e2V-ry-QpN"/>
+                                <exclude reference="Y4C-Pj-16i"/>
+                                <exclude reference="lRQ-Tl-mp0"/>
+                                <exclude reference="rJS-44-Zk1"/>
+                                <exclude reference="Obl-hP-YA7"/>
+                                <exclude reference="ZvF-ny-r8m"/>
+                                <exclude reference="HSu-rc-MSG"/>
+                                <exclude reference="fj1-h2-Ity"/>
+                                <exclude reference="pwO-yz-f83"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="foodLogTitleTextField" destination="O70-xC-XVh" id="R86-iO-Kfg"/>
@@ -262,7 +309,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yX-jP-zQf" id="Fjl-Fn-Bhc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
