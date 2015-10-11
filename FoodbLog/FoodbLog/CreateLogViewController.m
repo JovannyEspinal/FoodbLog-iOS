@@ -37,10 +37,15 @@
     self.restaurantSearchTextField.delegate = self;
     self.foodLogNotesTextField.delegate = self;
     
+    
+    
     [self setupNavigationBar];
     
 
     //self.foodLogImageView.image = some default image at the screen
+
+    [self instagramRequestForTag:@"pizza"];
+
     
     
 }
@@ -84,6 +89,8 @@
              instagramPicker.imageURLArray = searchResults;
              
              [self.navigationController pushViewController:instagramPicker animated:YES];
+             
+             NSLog(@"%@", searchResults);
              
              
          } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
