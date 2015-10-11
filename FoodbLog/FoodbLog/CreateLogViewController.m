@@ -11,8 +11,11 @@
 @interface CreateLogViewController ()
 
 - (void)saveButtonTapped;
-@property (nonatomic) UITextField *foodLogTitleTextField;
-@property (nonatomic) UITextField *foodLogNotesTextField;
+@property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
+@property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
+@property (nonatomic) IBOutlet UITextField *foodLogNotesTextField;
+
+
 
 @end
 
@@ -37,15 +40,5 @@
     foodLog[@"notes"] = self.foodLogNotesTextField.text; 
     [foodLog saveInBackground];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
