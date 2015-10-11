@@ -17,7 +17,8 @@
     
     CGFloat width = (CGRectGetWidth(self.collectionView.frame) - leftAndRightPaddings)/numberOfItemsPerRow;
     
-    self.collectionViewLayout.itemSize = CGSizeMake(width, width +heightAdjustment)
+    UICollectionViewFlowLayout *layout = self.collectionViewLayout;
+    layout.itemSize = CGSizeMake(width, width +heightAdjustment);
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
