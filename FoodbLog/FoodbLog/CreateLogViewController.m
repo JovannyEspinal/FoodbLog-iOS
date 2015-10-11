@@ -8,6 +8,7 @@
 #import <Parse/Parse.h>
 #import "CreateLogViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "InstagramImagePicker.h"
 
 @interface CreateLogViewController () <UITextFieldDelegate>
 
@@ -70,6 +71,12 @@
              }
              
              //pass the searchResults over to the CollectionViewController
+             InstagramImagePicker* instagramPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"InstagramImagePicker"];
+             
+             instagramPicker.imageURLArray = searchResults;
+             
+             [self.navigationController pushViewController:instagramPicker animated:YES];
+             
              
          } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
              NSLog(@"%@", error);

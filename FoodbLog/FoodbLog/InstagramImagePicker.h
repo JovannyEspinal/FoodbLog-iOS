@@ -10,6 +10,8 @@
 
 @interface InstagramImagePicker : UICollectionViewController
 
+@property (nonatomic) NSArray* imageURLArray;
+
 
 
 @end
