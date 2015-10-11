@@ -39,7 +39,10 @@
     
     [self setupNavigationBar];
     
+
     //self.foodLogImageView.image = some default image at the screen
+    
+    
 }
 
 -(void)setupNavigationBar {
@@ -56,7 +59,7 @@
 
 -(void)instagramRequestForTag:(NSString*)foodName {
     
-    NSString *urlString = @"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067";
+    NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", foodName];
     
     AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc]init];
     [manager GET:urlString
@@ -90,7 +93,18 @@
     
 }
 
+
 #pragma mark - Image Picker Controller Delegate methods
+
+-(void)foursquareRequestForRestaurantName:(NSString*)restaurantName {
+    
+    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=VENOVOCEM4E1QVRTGNOCNO40V32YHQ4FMRD0M3K4WBMYQWPS&client_secret=QVM22AMEWXEZ54VBHMGOHYE2JNMMLTQYKOKOSAK0JTGDQBLT&v=20130815&query=%@&intent=global", restaurantName];
+    
+    
+    
+}
+
 
 - (IBAction)snapAPhotoButtonTapped:(UIButton *)sender {
     [self startImagePickerController]; 

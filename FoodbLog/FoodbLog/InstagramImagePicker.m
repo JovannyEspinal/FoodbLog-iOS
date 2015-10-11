@@ -7,6 +7,7 @@
 //
 
 #import "InstagramImagePicker.h"
+#import "FoodImagePickerCustomCVC.h"
 
 @implementation InstagramImagePicker
 
@@ -33,8 +34,9 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TestCell" forIndexPath:indexPath];
+    FoodImagePickerCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TestCell" forIndexPath:indexPath];
     
+    //CHANGE cell.foodImage.image to the converted imageURL from the imageURLArray
     
     
     return cell;
