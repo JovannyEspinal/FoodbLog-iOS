@@ -36,7 +36,7 @@
     
     FoodImagePickerCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TestCell" forIndexPath:indexPath];
     
-    
+    //CHANGE cell.foodImage.image to the converted imageURL from the imageURLArray
     
     
     return cell;

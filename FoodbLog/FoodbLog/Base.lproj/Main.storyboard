@@ -72,23 +72,86 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gxx-JI-5mi">
                                 <rect key="frame" x="0.0" y="110" width="600" height="441"/>
                                 <animations/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSA-I4-JmJ">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSA-I4-JmJ">
+                                    <size key="itemSize" width="280" height="380"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C0x-uH-KmF">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C0x-uH-KmF" customClass="FoodFeedCustomCVC">
+                                        <rect key="frame" x="20" y="30.5" width="280" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yh3-L0-dId">
+                                                    <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
+                                                    <animations/>
+                                                </imageView>
+                                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5If-Dn-hs1">
+                                                    <rect key="frame" x="0.0" y="305" width="280" height="75"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fFz-4V-CUG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="75"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsN-z7-4d2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="280" height="75"/>
+                                                                <animations/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="IsN-z7-4d2" secondAttribute="bottom" id="I9k-Kd-eHq"/>
+                                                            <constraint firstAttribute="trailing" secondItem="IsN-z7-4d2" secondAttribute="trailing" id="bLI-DK-IpS"/>
+                                                            <constraint firstItem="IsN-z7-4d2" firstAttribute="leading" secondItem="fFz-4V-CUG" secondAttribute="leading" id="rQj-2w-vAf"/>
+                                                            <constraint firstItem="IsN-z7-4d2" firstAttribute="top" secondItem="fFz-4V-CUG" secondAttribute="top" id="vlY-Z8-8NX"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="75" id="Ne1-I4-gua"/>
+                                                        <constraint firstAttribute="height" constant="75" id="Q1g-iO-ixD"/>
+                                                    </constraints>
+                                                    <blurEffect style="extraLight"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="Ne1-I4-gua"/>
+                                                        </mask>
+                                                    </variation>
+                                                </visualEffectView>
+                                            </subviews>
                                             <animations/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="5If-Dn-hs1" secondAttribute="bottom" id="6MP-BO-7aZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="5If-Dn-hs1" secondAttribute="bottom" id="AVj-gf-mLM"/>
+                                            <constraint firstItem="5If-Dn-hs1" firstAttribute="leading" secondItem="C0x-uH-KmF" secondAttribute="leading" id="MaY-5b-MMX"/>
+                                            <constraint firstItem="5If-Dn-hs1" firstAttribute="leading" secondItem="C0x-uH-KmF" secondAttribute="leading" id="RyM-h7-7UQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="5If-Dn-hs1" secondAttribute="trailing" id="SLX-JT-jNS"/>
+                                            <constraint firstAttribute="trailing" secondItem="5If-Dn-hs1" secondAttribute="trailing" id="dTG-uD-ElN"/>
+                                            <constraint firstAttribute="bottom" secondItem="yh3-L0-dId" secondAttribute="bottom" id="l0l-gI-ef2"/>
+                                            <constraint firstAttribute="trailing" secondItem="yh3-L0-dId" secondAttribute="trailing" id="m9p-8H-hcK"/>
+                                            <constraint firstItem="yh3-L0-dId" firstAttribute="leading" secondItem="C0x-uH-KmF" secondAttribute="leading" id="ok5-If-DfN"/>
+                                            <constraint firstItem="yh3-L0-dId" firstAttribute="top" secondItem="C0x-uH-KmF" secondAttribute="top" id="zNQ-z2-rBq"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="6MP-BO-7aZ"/>
+                                                <exclude reference="MaY-5b-MMX"/>
+                                                <exclude reference="dTG-uD-ElN"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="foodImage" destination="yh3-L0-dId" id="nNq-Zn-Sus"/>
+                                            <outlet property="foodNameLabel" destination="IsN-z7-4d2" id="tRo-h5-P2O"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
