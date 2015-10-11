@@ -6,7 +6,7 @@
 //  Copyright © 2015 Ayuna Vogel. All rights reserved.
 //
 
-#import "CreateLogViewController.h"
+#import <UIKit/UIKit.h>
 
 @interface CreateLogViewController : UIViewController
 

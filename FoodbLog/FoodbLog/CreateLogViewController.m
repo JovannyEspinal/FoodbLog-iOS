@@ -6,7 +6,6 @@
 //  Copyright © 2015 Ayuna Vogel. All rights reserved.
 //
 #import <Parse/Parse.h>
-
 #import "CreateLogViewController.h"
 
 @interface CreateLogViewController ()
@@ -22,8 +21,6 @@
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = @"Mediterranean Quinoa Bowl";
     [foodLog saveInBackground];
-
-
 }
 
 - (void)didReceiveMemoryWarning {
