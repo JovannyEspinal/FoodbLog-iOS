@@ -51,7 +51,6 @@
         <!--View Controller-->
         <scene sceneID="QnS-3A-tqX">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g30-yV-0fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VEN-Oo-enf" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ocg-qp-ihy"/>
@@ -107,6 +106,7 @@
                         </textField>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g30-yV-0fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="931" y="54"/>
         </scene>
@@ -183,7 +183,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1k-jd-1yn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadlift_0" translatesAutoresizingMaskIntoConstraints="NO" id="b1k-jd-1yn">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <animations/>
                                         </imageView>
@@ -321,4 +321,7 @@
             <point key="canvasLocation" x="2378" y="-964"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="deadlift_0" width="650" height="360"/>
+    </resources>
 </document>
