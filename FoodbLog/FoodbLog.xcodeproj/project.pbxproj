@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		29E25D4A1BCAB8480015A16F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D491BCAB8480015A16F /* main.m */; };
 		29E25D4D1BCAB8480015A16F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D4C1BCAB8480015A16F /* AppDelegate.m */; };
-		29E25D501BCAB8480015A16F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D4F1BCAB8480015A16F /* ViewController.m */; };
 		29E25D531BCAB8480015A16F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E25D511BCAB8480015A16F /* Main.storyboard */; };
 		29E25D551BCAB8480015A16F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29E25D541BCAB8480015A16F /* Assets.xcassets */; };
 		29E25D581BCAB8480015A16F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29E25D561BCAB8480015A16F /* LaunchScreen.storyboard */; };
 		29E25D631BCAB8490015A16F /* FoodbLogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D621BCAB8490015A16F /* FoodbLogTests.m */; };
 		29E25D6E1BCAB8490015A16F /* FoodbLogUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D6D1BCAB8490015A16F /* FoodbLogUITests.m */; };
+		29E25D7D1BCAC8AF0015A16F /* CreateLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D7C1BCAC8AF0015A16F /* CreateLogViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3E3A6C939B0289FFD1210131 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7706AE13EB5BDBDB3BC628 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -40,8 +40,6 @@
 		29E25D491BCAB8480015A16F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29E25D4B1BCAB8480015A16F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		29E25D4C1BCAB8480015A16F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		29E25D4E1BCAB8480015A16F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		29E25D4F1BCAB8480015A16F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		29E25D521BCAB8480015A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29E25D541BCAB8480015A16F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29E25D571BCAB8480015A16F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,6 +50,8 @@
 		29E25D691BCAB8490015A16F /* FoodbLogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodbLogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E25D6D1BCAB8490015A16F /* FoodbLogUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodbLogUITests.m; sourceTree = "<group>"; };
 		29E25D6F1BCAB8490015A16F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29E25D7B1BCAC8AF0015A16F /* CreateLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateLogViewController.h; sourceTree = "<group>"; };
+		29E25D7C1BCAC8AF0015A16F /* CreateLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateLogViewController.m; sourceTree = "<group>"; };
 		4F3DE19BDA436F961CEABBD8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		BD7706AE13EB5BDBDB3BC628 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2B7031D22598F1B3D5DC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			children = (
 				29E25D4B1BCAB8480015A16F /* AppDelegate.h */,
 				29E25D4C1BCAB8480015A16F /* AppDelegate.m */,
-				29E25D4E1BCAB8480015A16F /* ViewController.h */,
-				29E25D4F1BCAB8480015A16F /* ViewController.m */,
+				29E25D7B1BCAC8AF0015A16F /* CreateLogViewController.h */,
+				29E25D7C1BCAC8AF0015A16F /* CreateLogViewController.m */,
 				29E25D511BCAB8480015A16F /* Main.storyboard */,
 				29E25D541BCAB8480015A16F /* Assets.xcassets */,
 				29E25D561BCAB8480015A16F /* LaunchScreen.storyboard */,
@@ -332,7 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29E25D501BCAB8480015A16F /* ViewController.m in Sources */,
+				29E25D7D1BCAC8AF0015A16F /* CreateLogViewController.m in Sources */,
 				29E25D4D1BCAB8480015A16F /* AppDelegate.m in Sources */,
 				29E25D4A1BCAB8480015A16F /* main.m in Sources */,
 			);
