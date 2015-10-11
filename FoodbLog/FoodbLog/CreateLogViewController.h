@@ -6,8 +6,8 @@
 //  Copyright © 2015 Ayuna Vogel. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CreateLogViewController.h"
 
-@interface CreateLogViewController : ViewController
+@interface CreateLogViewController : UIViewController
 
 @end

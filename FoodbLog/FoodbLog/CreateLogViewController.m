@@ -19,9 +19,9 @@
     [super viewDidLoad];
 
     // testing Parse app
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    testObject[@"foo"] = @"bar";
-    [testObject saveInBackground];
+    PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
+    foodLog[@"name"] = @"Mediterranean Quinoa Bowl";
+    [foodLog saveInBackground];
 
 
 }
