@@ -11,10 +11,11 @@
 @interface CreateLogViewController ()
 
 - (void)saveButtonTapped;
+
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
 @property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
-@property (nonatomic) IBOutlet UITextField *foodLogNotesTextField;
 
+@property (nonatomic) IBOutlet UITextField *foodLogNotesTextField;
 
 
 @end
@@ -32,6 +33,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)snapAPhotoButtonTapped:(UIButton *)sender {
+    NSLog(@"snap a photo button tapped");
+}
+
+
+- (IBAction)searchAPicOnInstagramButtonTapped:(UIButton *)sender {
+    NSLog(@"search a pic button tapped");
+
+}
+
 - (void)saveButtonTapped {
     
     // sending data to and storing in in Parse. This is a test version.
@@ -40,5 +51,6 @@
     foodLog[@"notes"] = self.foodLogNotesTextField.text; 
     [foodLog saveInBackground];
 }
+
 
 @end
