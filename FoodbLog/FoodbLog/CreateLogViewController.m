@@ -10,7 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "InstagramImagePicker.h"
 
-@interface CreateLogViewController () <UITextFieldDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -19,6 +19,12 @@
 
 - (void)saveButtonTapped;
 - (void)setupNavigationBar;
+
+@property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
+@property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
+@property (strong, nonatomic) UIImage *foodLogImage;
+@property (copy, nonatomic) NSString *lastChosenMediaType;
+
 
 @end
 
@@ -33,6 +39,7 @@
     
     [self setupNavigationBar];
     
+    //self.foodLogImageView.image = some default image at the screen
 }
 
 -(void)setupNavigationBar {
@@ -45,10 +52,8 @@
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:224.0/255.0 green:35.0/255.0 blue:70.0/255.0 alpha:1.0];
 
-    
-    
-  
 }
+
 -(void)instagramRequestForTag:(NSString*)foodName {
     
     NSString *urlString = @"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067";
@@ -85,8 +90,52 @@
     
 }
 
+#pragma mark - Image Picker Controller Delegate methods
+
 - (IBAction)snapAPhotoButtonTapped:(UIButton *)sender {
-    NSLog(@"snap a photo button tapped");
+    [self startImagePickerController]; 
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+    
+}
+
+// allocates and presents UIImagePickerController (Camera) 
+-(void)startImagePickerController {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    imagePickerController.delegate = self;
+    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    [self presentViewController:imagePickerController animated:NO completion:nil];
+}
+
+// checks if the device has a camera
+- (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType {
+    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType] && [mediaTypes count] > 0) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+        picker.mediaTypes = mediaTypes;
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error accessing media" message:@"Unsupported media source." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:okAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *foodImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.foodLogImageView.image = foodImage;
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    
+
+}
+
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
@@ -94,6 +143,7 @@
     NSLog(@"search a pic button tapped");
 
 }
+
 
 - (void)saveButtonTapped {
     
