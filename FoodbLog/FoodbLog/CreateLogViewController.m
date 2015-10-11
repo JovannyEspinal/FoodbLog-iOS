@@ -12,6 +12,7 @@
 
 - (void)saveButtonTapped;
 @property (nonatomic) UITextField *foodLogTitleTextField;
+@property (nonatomic) UITextField *foodLogNotesTextField;
 
 @end
 
@@ -33,6 +34,7 @@
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = self.foodLogTitleTextField.text; //@"Mediterranean Quinoa Bowl";
+    foodLog[@"notes"] = self.foodLogNotesTextField.text; 
     [foodLog saveInBackground];
 }
 
