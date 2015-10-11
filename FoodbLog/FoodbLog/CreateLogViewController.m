@@ -10,6 +10,9 @@
 
 @interface CreateLogViewController ()
 
+- (void)saveButtonTapped;
+@property (nonatomic) UITextField *foodLogTitleTextField;
+
 @end
 
 @implementation CreateLogViewController
@@ -17,15 +20,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // testing Parse app
-    PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
-    foodLog[@"name"] = @"Mediterranean Quinoa Bowl";
-    [foodLog saveInBackground];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)saveButtonTapped {
+    
+    // sending data to and storing in in Parse. This is a test version.
+    PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
+    foodLog[@"name"] = self.foodLogTitleTextField.text; //@"Mediterranean Quinoa Bowl";
+    [foodLog saveInBackground];
 }
 
 /*
