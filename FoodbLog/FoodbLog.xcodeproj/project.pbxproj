@@ -17,6 +17,7 @@
 		29E25D801BCAC9D50015A16F /* CreateLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D7F1BCAC9D50015A16F /* CreateLogViewController.m */; settings = {ASSET_TAGS = (); }; };
 		3E3A6C939B0289FFD1210131 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7706AE13EB5BDBDB3BC628 /* libPods.a */; };
 		50A3C2C41BCAE4AD0077F79B /* InstagramImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */; settings = {ASSET_TAGS = (); }; };
+		50F7C6781BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		4F3DE19BDA436F961CEABBD8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		50A3C2C21BCAE4AD0077F79B /* InstagramImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramImagePicker.h; sourceTree = "<group>"; };
 		50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramImagePicker.m; sourceTree = "<group>"; };
+		50F7C6761BCAF72B00A969D1 /* FoodImagePickerCustomCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodImagePickerCustomCVC.h; sourceTree = "<group>"; };
+		50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodImagePickerCustomCVC.m; sourceTree = "<group>"; };
 		BD7706AE13EB5BDBDB3BC628 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2B7031D22598F1B3D5DC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 				50A3C2C21BCAE4AD0077F79B /* InstagramImagePicker.h */,
 				50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */,
 				29E25D511BCAB8480015A16F /* Main.storyboard */,
+				50F7C6761BCAF72B00A969D1 /* FoodImagePickerCustomCVC.h */,
+				50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */,
 				29E25D541BCAB8480015A16F /* Assets.xcassets */,
 				29E25D561BCAB8480015A16F /* LaunchScreen.storyboard */,
 				29E25D591BCAB8480015A16F /* Info.plist */,
@@ -337,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50F7C6781BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m in Sources */,
 				50A3C2C41BCAE4AD0077F79B /* InstagramImagePicker.m in Sources */,
 				29E25D4D1BCAB8480015A16F /* AppDelegate.m in Sources */,
 				29E25D801BCAC9D50015A16F /* CreateLogViewController.m in Sources */,
