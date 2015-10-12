@@ -16,16 +16,15 @@
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
 @property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
 @property (nonatomic) IBOutlet UITextField *foodLogNotesTextField;
+@property (nonatomic) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
+@property (strong, nonatomic) UIImage *foodLogImage;
+@property (copy, nonatomic) NSString *lastChosenMediaType;
+@property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
 
 - (void)saveButtonTapped;
 - (void)setupNavigationBar;
-
-@property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
-@property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
-@property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
-@property (strong, nonatomic) UIImage *foodLogImage;
-@property (copy, nonatomic) NSString *lastChosenMediaType;
-@property (nonatomic) UIImagePickerController *imagePickerController;
 
 
 @end
@@ -68,6 +67,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - API requests methods 
 
 -(void)instagramRequestForTag:(NSString*)foodName {
     
@@ -177,19 +177,21 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - search a pic on instagram method
 
 - (IBAction)searchAPicOnInstagramButtonTapped:(UIButton *)sender {
     NSLog(@"search a pic button tapped");
 
 }
 
+#pragma mark - Save button 
 
 - (void)saveButtonTapped {
     
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
-    foodLog[@"name"] = self.foodLogTitleTextField.text; //@"Mediterranean Quinoa Bowl";
-                                                        //foodLog[@"notes"] = self.foodLogNotesTextField.text;
+    foodLog[@"name"] = self.foodLogTitleTextField.text;
+    //foodLog[@"notes"] = self.foodLogNotesTextField.text;
     [foodLog saveInBackground];
     
     [self dismissViewControllerAnimated:YES completion:nil];

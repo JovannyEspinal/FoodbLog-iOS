@@ -50,7 +50,14 @@
              
          }];
 
+    [self setParseDatabase];
+    
+    
+    return YES;
+}
 
+- (void)setParseDatabase {
+    
     // [Optional] Power your app with Local Datastore. For more info, go to
     // https://parse.com/docs/ios_guide#localdatastore/iOS
     [Parse enableLocalDatastore];
@@ -60,10 +67,9 @@
                   clientKey:@"je9HpthLghFr4MRHSvWTLlBBxJVb3udoZ8XmTisz"];
     
     // [Optional] Track statistics around application opens.
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    
-    return YES;
+    // This method should be inside the didFinishLaunchingWithOptions method.
+    //[PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
