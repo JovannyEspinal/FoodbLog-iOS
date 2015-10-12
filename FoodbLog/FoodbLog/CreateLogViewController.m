@@ -22,8 +22,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
 @property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
+@property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
 @property (strong, nonatomic) UIImage *foodLogImage;
 @property (copy, nonatomic) NSString *lastChosenMediaType;
+@property (nonatomic) UIImagePickerController *imagePickerController;
 
 
 @end
@@ -37,17 +39,14 @@
     self.restaurantSearchTextField.delegate = self;
     self.foodLogNotesTextField.delegate = self;
     
-    
-    
     [self setupNavigationBar];
     
-
-    //self.foodLogImageView.image = some default image at the screen
+    self.imagePickerController = [[UIImagePickerController alloc]init];
+    self.imagePickerController.delegate = self;
+    
 
     [self instagramRequestForTag:@"pizza"];
 
-    
-    
 }
 
 -(void)setupNavigationBar {
@@ -101,7 +100,6 @@
 }
 
 
-#pragma mark - Image Picker Controller Delegate methods
 
 -(void)foursquareRequestForRestaurantName:(NSString*)restaurantName {
     
@@ -112,46 +110,58 @@
     
 }
 
+#pragma mark - Image Picker Controller Delegate methods
 
 - (IBAction)snapAPhotoButtonTapped:(UIButton *)sender {
-    [self startImagePickerController]; 
+    
+    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+    // imagePickerController.allowsEditing = YES;
+    [self presentViewController:self.imagePickerController animated:NO completion:nil];
+
     [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
     
 }
 
-// allocates and presents UIImagePickerController (Camera) 
--(void)startImagePickerController {
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
-    imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    imagePickerController.delegate = self;
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    [self presentViewController:imagePickerController animated:NO completion:nil];
-}
 
 // checks if the device has a camera
 - (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType {
-    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType] && [mediaTypes count] > 0) {
-        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-        picker.mediaTypes = mediaTypes;
-        picker.delegate = self;
-        picker.allowsEditing = YES;
-        picker.sourceType = sourceType;
-        [self presentViewController:picker animated:YES completion:NULL];
-    } else {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error accessing media" message:@"Unsupported media source." preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+    
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                                 message:@"Device has no camera"
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:nil];
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
     }
+    
+//    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
+//    if ([UIImagePickerController isSourceTypeAvailable:sourceType] && [mediaTypes count] > 0) {
+//        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
+//        picker.mediaTypes = mediaTypes;
+//        picker.delegate = self;
+//        picker.allowsEditing = YES;
+//        picker.sourceType = sourceType;
+//        [self presentViewController:picker animated:YES completion:NULL];
+//    } else {
+//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error accessing media" message:@"Unsupported media source." preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+//        [alertController addAction:okAction];
+//        [self presentViewController:alertController animated:YES completion:nil];
+//    }
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    UIImage *foodImage = [info valueForKey:UIImagePickerControllerOriginalImage];
-    self.foodLogImageView.image = foodImage;
-    [self dismissViewControllerAnimated:YES completion:nil];
-
     
+    UIImage *foodPhotoImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+    self.foodLogImageView.image = foodPhotoImage;
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
@@ -171,7 +181,7 @@
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = self.foodLogTitleTextField.text; //@"Mediterranean Quinoa Bowl";
-    foodLog[@"notes"] = self.foodLogNotesTextField.text; 
+                                                        //foodLog[@"notes"] = self.foodLogNotesTextField.text;
     [foodLog saveInBackground];
 }
 

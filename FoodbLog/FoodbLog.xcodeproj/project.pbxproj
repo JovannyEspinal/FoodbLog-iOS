@@ -126,6 +126,7 @@
 		29E25D471BCAB8480015A16F /* FoodbLog */ = {
 			isa = PBXGroup;
 			children = (
+				29E25D511BCAB8480015A16F /* Main.storyboard */,
 				29E25D4B1BCAB8480015A16F /* AppDelegate.h */,
 				29E25D4C1BCAB8480015A16F /* AppDelegate.m */,
 				29E25D7E1BCAC9D50015A16F /* CreateLogViewController.h */,
@@ -136,7 +137,6 @@
 				50F7C67D1BCB08BA00A969D1 /* FoodFeedCustomCVC.m */,
 				50F7C6761BCAF72B00A969D1 /* FoodImagePickerCustomCVC.h */,
 				50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */,
-				29E25D511BCAB8480015A16F /* Main.storyboard */,
 				29E25D541BCAB8480015A16F /* Assets.xcassets */,
 				29E25D561BCAB8480015A16F /* LaunchScreen.storyboard */,
 				29E25D591BCAB8480015A16F /* Info.plist */,
