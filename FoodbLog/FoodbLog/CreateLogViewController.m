@@ -14,12 +14,13 @@
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
-@property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
-@property (nonatomic) IBOutlet UITextField *foodLogNotesTextField;
-@property (nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
 @property (strong, nonatomic) UIImage *foodLogImage;
+@property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
+
+@property (nonatomic) UIImagePickerController *imagePickerController;
 @property (copy, nonatomic) NSString *lastChosenMediaType;
+
 @property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
 
@@ -33,10 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.foodLogNotesTextField.delegate = self;
+   
+    self.foodLogTitleTextField.delegate = self;
     self.restaurantSearchTextField.delegate = self;
-    self.foodLogNotesTextField.delegate = self;
     
     [self setupNavigationBar];
     
@@ -191,7 +191,7 @@
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = self.foodLogTitleTextField.text;
-    //foodLog[@"notes"] = self.foodLogNotesTextField.text;
+    //foodLog[@"notes"] = self.foodLogNotesTextField.text; // this property has not been created yet inside the VC
     [foodLog saveInBackground];
     
     [self dismissViewControllerAnimated:YES completion:nil];
