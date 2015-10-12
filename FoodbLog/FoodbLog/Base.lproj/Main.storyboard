@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Food Experiences-->
+        <!--Food bLog-->
         <scene sceneID="Won-OC-9GV">
             <objects>
-                <collectionViewController id="Ej6-zJ-2Ib" sceneMemberID="viewController">
+                <collectionViewController title="Food bLog" id="Ej6-zJ-2Ib" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pCR-CD-WKv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,8 +37,8 @@
                             <outlet property="delegate" destination="Ej6-zJ-2Ib" id="sTd-I6-2Ys"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Food Experiences" id="VaL-yh-FpB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PxL-bH-ed2">
+                    <navigationItem key="navigationItem" title="food bLOG" id="VaL-yh-FpB">
+                        <barButtonItem key="rightBarButtonItem" image="Fork-32" id="PxL-bH-ed2">
                             <connections>
                                 <segue destination="JIG-jI-mLI" kind="show" id="uaU-vc-o5b"/>
                             </connections>
@@ -275,7 +275,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro1-YH-qQS" userLabel="Snap a photo Button">
                                 <rect key="frame" x="28" y="211" width="32" height="32"/>
                                 <animations/>
-                                <state key="normal" image="1442272746_photo-24"/>
+                                <state key="normal" image="cameraIcon"/>
                                 <connections>
                                     <action selector="snapAPhotoButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="tDI-jk-6xd"/>
                                 </connections>
@@ -460,11 +460,11 @@
             </objects>
             <point key="canvasLocation" x="-701" y="-276"/>
         </scene>
-        <!--Experiences-->
+        <!--Food bLOG-->
         <scene sceneID="W2f-5x-Url">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gS1-7B-Vab" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Experiences" id="0cq-Iv-nhg"/>
+                    <tabBarItem key="tabBarItem" title="Food bLOG" id="0cq-Iv-nhg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Prc-zH-yCb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -521,8 +521,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1442272746_photo-24" width="32" height="32"/>
+        <image name="Fork-32" width="32" height="32"/>
         <image name="Instagram" width="32" height="32"/>
+        <image name="cameraIcon" width="32" height="32"/>
         <image name="deadlift_0" width="650" height="360"/>
         <image name="plate" width="1400" height="980"/>
     </resources>

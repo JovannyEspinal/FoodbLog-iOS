@@ -53,7 +53,7 @@
 
 -(void)setupNavigationBar {
     
-    self.navigationItem.title = @"New FoodLog"; // name for now. Should be changed later. 
+    self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // is subject to change 
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTapped)];
