@@ -49,17 +49,25 @@
 
 }
 
+#pragma mark - Navigation Bar methods 
+
 -(void)setupNavigationBar {
     
     self.navigationItem.title = @"New FoodLog"; // name for now. Should be changed later. 
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTapped)];
     
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:224.0/255.0 green:35.0/255.0 blue:70.0/255.0 alpha:1.0];
 
 }
+
+-(void)cancelButtonTapped{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void)instagramRequestForTag:(NSString*)foodName {
     
@@ -183,6 +191,9 @@
     foodLog[@"name"] = self.foodLogTitleTextField.text; //@"Mediterranean Quinoa Bowl";
                                                         //foodLog[@"notes"] = self.foodLogNotesTextField.text;
     [foodLog saveInBackground];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 
 
