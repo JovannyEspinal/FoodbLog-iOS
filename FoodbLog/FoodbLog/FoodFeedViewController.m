@@ -8,6 +8,7 @@
 
 #import "FoodFeedViewController.h"
 #import "FoodFeedCustomCVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FoodFeedViewController ()  <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -35,6 +36,8 @@
     
     FoodFeedCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"testCell" forIndexPath:indexPath];
     
+    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 10;
     
     return cell;
 }

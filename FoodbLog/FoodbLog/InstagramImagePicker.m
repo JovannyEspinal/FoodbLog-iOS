@@ -37,6 +37,8 @@
     
     FoodImagePickerCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodImagePickerCell" forIndexPath:indexPath];
     
+    cell.layer.masksToBounds = YES;
+    cell.layer.cornerRadius = 10;
     //CHANGE cell.foodImage.image to the converted imageURL from the imageURLArray
     
     

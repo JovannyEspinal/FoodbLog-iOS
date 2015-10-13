@@ -47,6 +47,7 @@
 
     [self instagramRequestForTag:@"pizza"];
     
+    //Added formatting to text fields
     [self textFieldFormatting:self.foodLogTitleTextField];
     [self textFieldFormatting:self.restaurantSearchTextField];
     [self textFieldFormatting:self.recipeSearchTextField];
@@ -54,6 +55,7 @@
 
 #pragma mark - Formatting Methods
 
+//Method for formatting text fields
 -(void)textFieldFormatting:(UITextField *)textField{
     textField.layer.borderWidth = 1.0f;
     textField.layer.cornerRadius = 5.0;
