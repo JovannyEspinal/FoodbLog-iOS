@@ -571,7 +571,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvo-RM-LxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3190" y="-891"/>
+            <point key="canvasLocation" x="2865" y="-878"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="fkR-2M-0yN">
@@ -602,7 +602,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaP-Uf-rAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3190" y="-215"/>
+            <point key="canvasLocation" x="2865" y="-192"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eQF-a3-zvi">
