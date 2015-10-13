@@ -114,7 +114,7 @@
                                 <rect key="frame" x="0.0" y="110" width="600" height="441"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSA-I4-JmJ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="15" id="gSA-I4-JmJ">
                                     <size key="itemSize" width="280" height="380"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -196,6 +196,10 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="VEN-Oo-enf" id="lnf-gI-nZt"/>
+                                    <outlet property="delegate" destination="VEN-Oo-enf" id="DhE-sW-mO3"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <animations/>
