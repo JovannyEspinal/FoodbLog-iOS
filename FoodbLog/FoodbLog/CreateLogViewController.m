@@ -45,7 +45,7 @@
     self.imagePickerController.delegate = self;
     
 
-    [self instagramRequestForTag:@"pizza"];
+    
     
     //Added formatting to text fields
     [self textFieldFormatting:self.foodLogTitleTextField];
@@ -196,7 +196,8 @@
 #pragma mark - search a pic on instagram method
 
 - (IBAction)searchAPicOnInstagramButtonTapped:(UIButton *)sender {
-    NSLog(@"search a pic button tapped");
+    
+    [self instagramRequestForTag:self.foodLogTitleTextField.text];
 
 }
 

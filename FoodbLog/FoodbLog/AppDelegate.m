@@ -20,35 +20,9 @@
     
     
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", @"pizza"];
     
-    AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc]init];
-    [manager GET:urlString
-      parameters:nil
-         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-             
-             NSArray *results = responseObject[@"data"];
-             
-             
-             NSMutableArray* searchResults = [[NSMutableArray alloc] init];
-             
-             // loop through all json posts
-             for (NSDictionary *result in results) {
-                 ;
-                 [searchResults addObject:result[@"images"][@"standard_resolution"][@"url"]];
-                 
-             }
-             
-             //pass the searchResults over to the CollectionViewController
-           
-             
-             NSLog(@"%@", searchResults);
-             
-             
-         } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-             NSLog(@"%@", error);
-             
-         }];
+    
+    
 
     [self setParseDatabase];
     

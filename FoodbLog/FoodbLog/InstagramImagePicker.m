@@ -9,6 +9,7 @@
 #import "InstagramImagePicker.h"
 #import "FoodImagePickerCustomCVC.h"
 #import <QuartzCore/QuartzCore.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation InstagramImagePicker
 
@@ -39,7 +40,10 @@
     
     cell.layer.masksToBounds = YES;
     cell.layer.cornerRadius = 10;
-    //CHANGE cell.foodImage.image to the converted imageURL from the imageURLArray
+    [cell.foodImage sd_setImageWithURL:[NSURL URLWithString:self.imageURLArray[indexPath.row]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        cell.foodImage.image = image;
+    }];
+
     
     
     return cell;
