@@ -447,7 +447,6 @@
                                 <state key="normal" image="Instagram"/>
                                 <connections>
                                     <action selector="searchAPicOnInstagramButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="kJS-3f-brI"/>
-                                    <segue destination="qVk-gc-INx" kind="show" id="YLq-4d-xGQ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Recipe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgl-b7-A96">
@@ -537,13 +536,13 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodImagePickerCell" id="zvM-FM-51J" customClass="FoodImagePickerCustomCVC">
-                                <rect key="frame" x="8" y="72" width="175" height="175"/>
+                                <rect key="frame" x="8" y="8" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deadlift_0" translatesAutoresizingMaskIntoConstraints="NO" id="b1k-jd-1yn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1k-jd-1yn">
                                             <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                             <animations/>
                                         </imageView>
@@ -671,7 +670,6 @@
         <image name="FullSizeRender" width="640" height="627"/>
         <image name="Instagram" width="32" height="32"/>
         <image name="cameraIcon" width="32" height="32"/>
-        <image name="deadlift_0" width="650" height="360"/>
         <image name="plate" width="1400" height="980"/>
     </resources>
 </document>
