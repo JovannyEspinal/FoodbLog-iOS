@@ -10,7 +10,7 @@
 
 @interface FoodbLogCustomCVC : UICollectionViewCell
 
-//@property (weak, nonatomic) IBOutlet UIImageView *foodbLogImage;
-//@property (weak, nonatomic) IBOutlet UILabel *foodbLogNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *foodbLogImage;
+@property (weak, nonatomic) IBOutlet UILabel *foodbLogNameLabel;
 
 @end

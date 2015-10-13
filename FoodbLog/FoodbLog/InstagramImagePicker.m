@@ -8,6 +8,7 @@
 
 #import "InstagramImagePicker.h"
 #import "FoodImagePickerCustomCVC.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation InstagramImagePicker
 
@@ -29,12 +30,12 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return [self.imageURLArray count];
+    return 10;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    FoodImagePickerCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TestCell" forIndexPath:indexPath];
+    FoodImagePickerCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodImagePickerCell" forIndexPath:indexPath];
     
     //CHANGE cell.foodImage.image to the converted imageURL from the imageURLArray
     

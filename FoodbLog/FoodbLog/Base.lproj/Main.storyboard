@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -8,37 +8,77 @@
         <!--Food bLog-->
         <scene sceneID="Won-OC-9GV">
             <objects>
-                <collectionViewController title="Food bLog" id="Ej6-zJ-2Ib" sceneMemberID="viewController">
+                <collectionViewController title="Food bLog" id="Ej6-zJ-2Ib" customClass="FoodbLog" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pCR-CD-WKv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n7g-4c-8EN">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="n7g-4c-8EN">
+                            <size key="itemSize" width="175" height="175"/>
+                            <size key="headerReferenceSize" width="50" height="44"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="8" minY="5" maxX="8" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I7U-Qz-06Z">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodbLogCell" id="I7U-Qz-06Z" customClass="FoodbLogCustomCVC">
+                                <rect key="frame" x="8" y="113" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullSizeRender" translatesAutoresizingMaskIntoConstraints="NO" id="LL9-TZ-IJK">
+                                            <rect key="frame" x="0.0" y="0.0" width="175" height="175"/>
+                                            <animations/>
+                                        </imageView>
+                                    </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstItem="LL9-TZ-IJK" firstAttribute="leading" secondItem="I7U-Qz-06Z" secondAttribute="leading" id="BSu-8o-fVA"/>
+                                    <constraint firstItem="LL9-TZ-IJK" firstAttribute="top" secondItem="I7U-Qz-06Z" secondAttribute="top" id="Rzr-J4-NJA"/>
+                                    <constraint firstAttribute="bottom" secondItem="LL9-TZ-IJK" secondAttribute="bottom" id="a5A-yu-n4w"/>
+                                    <constraint firstAttribute="trailing" secondItem="LL9-TZ-IJK" secondAttribute="trailing" id="eb4-ly-XgX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="foodbLogImage" destination="LL9-TZ-IJK" id="6tr-PL-yoD"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodbLogHeaderView" id="BVN-kJ-brf" customClass="FoodbLogCustomHeader">
+                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3u-4R-f1r">
+                                    <rect key="frame" x="8" y="0.0" width="592" height="44"/>
+                                    <animations/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <color key="textColor" red="1" green="0.65156431479999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="b3u-4R-f1r" secondAttribute="bottom" id="49u-Mq-hZV"/>
+                                <constraint firstItem="b3u-4R-f1r" firstAttribute="top" secondItem="BVN-kJ-brf" secondAttribute="top" id="Ofn-Z4-dwr"/>
+                                <constraint firstAttribute="trailing" secondItem="b3u-4R-f1r" secondAttribute="trailing" id="Q01-bI-Qhe"/>
+                                <constraint firstItem="b3u-4R-f1r" firstAttribute="leading" secondItem="BVN-kJ-brf" secondAttribute="leading" constant="8" id="vML-y6-vu4"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="foodbLogHeaderLabel" destination="b3u-4R-f1r" id="HX9-cp-3AT"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="Ej6-zJ-2Ib" id="FWU-jH-RAI"/>
                             <outlet property="delegate" destination="Ej6-zJ-2Ib" id="sTd-I6-2Ys"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="food bLOG" id="VaL-yh-FpB">
+                    <navigationItem key="navigationItem" title="Food bLOG" id="VaL-yh-FpB">
                         <barButtonItem key="rightBarButtonItem" image="Fork-32" id="PxL-bH-ed2">
+                            <color key="tintColor" red="1" green="0.65156431479999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="JIG-jI-mLI" kind="show" id="uaU-vc-o5b"/>
                             </connections>
@@ -49,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="753" y="-637"/>
         </scene>
-        <!--View Controller-->
+        <!--Food Feed View Controller-->
         <scene sceneID="QnS-3A-tqX">
             <objects>
-                <viewController id="VEN-Oo-enf" sceneMemberID="viewController">
+                <viewController id="VEN-Oo-enf" customClass="FoodFeedViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ocg-qp-ihy"/>
                         <viewControllerLayoutGuide type="bottom" id="qfF-ae-hXI"/>
@@ -61,17 +101,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-yg-ogq">
-                                <rect key="frame" x="240" y="74" width="121" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XzP-yg-ogq">
+                                <rect key="frame" x="236" y="74" width="129" height="29"/>
                                 <animations/>
                                 <segments>
                                     <segment title="Pictures"/>
                                     <segment title="Recipes"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.65156431479999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gxx-JI-5mi">
                                 <rect key="frame" x="0.0" y="110" width="600" height="441"/>
                                 <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSA-I4-JmJ">
                                     <size key="itemSize" width="280" height="380"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -79,14 +121,14 @@
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C0x-uH-KmF" customClass="FoodFeedCustomCVC">
-                                        <rect key="frame" x="20" y="31" width="280" height="380"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="testCell" id="C0x-uH-KmF" customClass="FoodFeedCustomCVC">
+                                        <rect key="frame" x="20" y="30.5" width="280" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yh3-L0-dId">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="yh3-L0-dId">
                                                     <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
                                                     <animations/>
                                                 </imageView>
@@ -159,7 +201,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="XzP-yg-ogq" firstAttribute="centerX" secondItem="1xJ-fl-E38" secondAttribute="centerX" id="0qn-Tg-w82"/>
                             <constraint firstItem="XzP-yg-ogq" firstAttribute="centerX" secondItem="1xJ-fl-E38" secondAttribute="centerX" id="pHj-1Y-z1O"/>
+                            <constraint firstItem="XzP-yg-ogq" firstAttribute="top" secondItem="Ocg-qp-ihy" secondAttribute="bottom" constant="10" id="whH-x5-ehj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5hq-Gs-njV">
@@ -172,6 +216,9 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="Gxx-JI-5mi" id="yN3-hz-uAp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g30-yV-0fL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -184,6 +231,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Riy-Yd-A5t">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
                     </navigationBar>
                     <connections>
                         <segue destination="WBo-t4-PnB" kind="relationship" relationship="rootViewController" id="AZ4-7D-L0H"/>
@@ -208,7 +256,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goJ-jb-YRV" userLabel="UIViewForFoodImage">
                                 <rect key="frame" x="200" y="127" width="200" height="200"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                         <animations/>
                                         <constraints>
@@ -223,6 +271,7 @@
                                         </variation>
                                     </imageView>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="axR-oS-lFg" firstAttribute="leading" secondItem="goJ-jb-YRV" secondAttribute="leading" id="D96-78-PpU"/>
@@ -263,8 +312,8 @@
                                     </mask>
                                 </variation>
                             </textView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat? " textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O70-xC-XVh">
-                                <rect key="frame" x="234" y="80" width="133" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What did you eat? " textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="O70-xC-XVh">
+                                <rect key="frame" x="230" y="80" width="141.5" height="30"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="RfC-Fj-Tp5"/>
@@ -286,6 +335,7 @@
                                 <state key="normal" image="Instagram"/>
                                 <connections>
                                     <action selector="searchAPicOnInstagramButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="kJS-3f-brI"/>
+                                    <segue destination="qVk-gc-INx" kind="show" id="TeX-bx-wQj"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Recipe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgl-b7-A96">
@@ -348,6 +398,7 @@
                     <connections>
                         <outlet property="foodLogImageView" destination="axR-oS-lFg" id="nZW-6A-VGJ"/>
                         <outlet property="foodLogTitleTextField" destination="O70-xC-XVh" id="R86-iO-Kfg"/>
+                        <outlet property="recipeSearchTextField" destination="Xgl-b7-A96" id="hg6-AP-vQd"/>
                         <outlet property="restaurantSearchTextField" destination="j5v-l0-noz" id="kxg-Mm-EoT"/>
                         <outlet property="searchAPicButton" destination="a2K-lM-gcm" id="qew-4V-rvr"/>
                         <outlet property="snapAPhotoButton" destination="Ro1-YH-qQS" id="mWT-NC-KPO"/>
@@ -372,7 +423,7 @@
                             <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="8"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="zvM-FM-51J" customClass="FoodImagePickerCustomCVC">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodImagePickerCell" id="zvM-FM-51J" customClass="FoodImagePickerCustomCVC">
                                 <rect key="frame" x="8" y="72" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -424,7 +475,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yX-jP-zQf" id="Fjl-Fn-Bhc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -450,6 +501,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="0.65156431479999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="gS1-7B-Vab" kind="relationship" relationship="viewControllers" id="eIO-nQ-oSj"/>
@@ -522,9 +574,13 @@
     </scenes>
     <resources>
         <image name="Fork-32" width="32" height="32"/>
+        <image name="FullSizeRender" width="640" height="627"/>
         <image name="Instagram" width="32" height="32"/>
         <image name="cameraIcon" width="32" height="32"/>
         <image name="deadlift_0" width="650" height="360"/>
         <image name="plate" width="1400" height="980"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="TeX-bx-wQj"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *foodLogImageView;
 @property (strong, nonatomic) UIImage *foodLogImage;
 @property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
+@property (weak, nonatomic) IBOutlet UITextField *recipeSearchTextField;
 
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (copy, nonatomic) NSString *lastChosenMediaType;
@@ -45,8 +46,21 @@
     
 
     [self instagramRequestForTag:@"pizza"];
-
+    
+    [self textFieldFormatting:self.foodLogTitleTextField];
+    [self textFieldFormatting:self.restaurantSearchTextField];
+    [self textFieldFormatting:self.recipeSearchTextField];
 }
+
+#pragma mark - Formatting Methods
+
+-(void)textFieldFormatting:(UITextField *)textField{
+    textField.layer.borderWidth = 1.0f;
+    textField.layer.cornerRadius = 5.0;
+    textField.layer.masksToBounds = YES;
+    textField.layer.borderColor = [[UIColor orangeColor] CGColor];
+}
+    
 
 #pragma mark - Navigation Bar methods 
 
@@ -57,8 +71,8 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTapped)];
     
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor grayColor];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithRed:224.0/255.0 green:35.0/255.0 blue:70.0/255.0 alpha:1.0];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor orangeColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor orangeColor];
 
 }
 

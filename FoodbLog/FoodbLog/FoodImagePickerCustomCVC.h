@@ -11,4 +11,5 @@
 @interface FoodImagePickerCustomCVC : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 
+
 @end
