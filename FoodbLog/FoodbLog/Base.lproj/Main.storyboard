@@ -339,7 +339,7 @@
                                 <state key="normal" image="Instagram"/>
                                 <connections>
                                     <action selector="searchAPicOnInstagramButtonTapped:" destination="WBo-t4-PnB" eventType="touchUpInside" id="kJS-3f-brI"/>
-                                    <segue destination="qVk-gc-INx" kind="show" id="TeX-bx-wQj"/>
+                                    <segue destination="qVk-gc-INx" kind="show" id="YLq-4d-xGQ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Recipe" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xgl-b7-A96">
@@ -463,7 +463,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvo-RM-LxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3914" y="-980"/>
+            <point key="canvasLocation" x="3190" y="-891"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="fkR-2M-0yN">
@@ -556,25 +556,6 @@
             </objects>
             <point key="canvasLocation" x="119" y="54"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="5qH-zd-h4C">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cjv-BS-nJS" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fLs-7n-2k4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <animations/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qVk-gc-INx" kind="relationship" relationship="rootViewController" id="BVd-tR-3dp"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P20-0w-6QH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3190" y="-964"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Fork-32" width="32" height="32"/>
@@ -584,7 +565,4 @@
         <image name="deadlift_0" width="650" height="360"/>
         <image name="plate" width="1400" height="980"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="TeX-bx-wQj"/>
-    </inferredMetricsTieBreakers>
 </document>
