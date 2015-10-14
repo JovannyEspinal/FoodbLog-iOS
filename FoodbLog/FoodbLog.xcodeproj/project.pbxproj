@@ -23,6 +23,7 @@
 		50D767B81BCC895900C82B8B /* FoodFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D767B71BCC895900C82B8B /* FoodFeedViewController.m */; settings = {ASSET_TAGS = (); }; };
 		50F7C6781BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */; settings = {ASSET_TAGS = (); }; };
 		50F7C67E1BCB08BA00A969D1 /* FoodFeedCustomCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 50F7C67D1BCB08BA00A969D1 /* FoodFeedCustomCVC.m */; settings = {ASSET_TAGS = (); }; };
+		5DAB1BE71BCDD7480088D08D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DAB1BE61BCDD7480088D08D /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		50F7C6771BCAF72B00A969D1 /* FoodImagePickerCustomCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodImagePickerCustomCVC.m; sourceTree = "<group>"; };
 		50F7C67C1BCB08BA00A969D1 /* FoodFeedCustomCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodFeedCustomCVC.h; sourceTree = "<group>"; };
 		50F7C67D1BCB08BA00A969D1 /* FoodFeedCustomCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodFeedCustomCVC.m; sourceTree = "<group>"; };
+		5DAB1BE61BCDD7480088D08D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BD7706AE13EB5BDBDB3BC628 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2B7031D22598F1B3D5DC1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DAB1BE71BCDD7480088D08D /* CoreLocation.framework in Frameworks */,
 				3E3A6C939B0289FFD1210131 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +197,7 @@
 		AEE7B9CF621872427CD71282 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DAB1BE61BCDD7480088D08D /* CoreLocation.framework */,
 				BD7706AE13EB5BDBDB3BC628 /* libPods.a */,
 			);
 			name = Frameworks;
