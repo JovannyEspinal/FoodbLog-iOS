@@ -69,7 +69,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjD-ds-XJO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="-1418"/>
+            <point key="canvasLocation" x="312" y="-1417"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="o1i-OT-2de">
+            <objects>
+                <viewController id="ksV-Bk-zXu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KUZ-0G-hGG"/>
+                        <viewControllerLayoutGuide type="bottom" id="TEn-cQ-elX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3u3-eK-rgH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ago-8V-8Hx">
+                                <rect key="frame" x="162" y="80" width="322" height="222"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MdU-Il-0r5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="-1417"/>
         </scene>
         <!--Food bLog-->
         <scene sceneID="Won-OC-9GV">
@@ -111,7 +136,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="foodbLogImage" destination="LL9-TZ-IJK" id="6tr-PL-yoD"/>
-                                    <segue destination="Jsb-ww-IDP" kind="show" id="KpS-Ig-30E"/>
+                                    <segue destination="Jsb-ww-IDP" kind="show" id="951-2R-381"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

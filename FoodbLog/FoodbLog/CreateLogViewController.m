@@ -9,6 +9,7 @@
 #import "CreateLogViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "InstagramImagePicker.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -86,6 +87,8 @@
 #pragma mark - API requests methods 
 
 -(void)instagramRequestForTag:(NSString*)foodName {
+    
+    foodName = [foodName stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", foodName];
     
