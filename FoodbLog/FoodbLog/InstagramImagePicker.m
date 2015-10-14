@@ -50,5 +50,11 @@
     return cell;
 }
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.delegate imagePickerDidSelectImageWithURL:self.imageURLArray[indexPath.row]];
+    
+}
+
 
 @end

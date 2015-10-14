@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol InstagramImagePickerDelegate <NSObject>
+
+-(void)imagePickerDidSelectImageWithURL:(NSString*)url;
+
+
+@end
+
+
 @interface InstagramImagePicker : UICollectionViewController
 
 @property (nonatomic) NSArray* imageURLArray;
+@property (nonatomic, weak) id <InstagramImagePickerDelegate> delegate;
 
 
 

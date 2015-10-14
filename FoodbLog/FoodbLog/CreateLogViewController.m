@@ -11,8 +11,9 @@
 #import "InstagramImagePicker.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -121,6 +122,7 @@
              //pass the searchResults over to the CollectionViewController
              InstagramImagePicker* instagramPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"InstagramImagePicker"];
              
+             instagramPicker.delegate = self;
              instagramPicker.imageURLArray = searchResults;
              
              [self.navigationController pushViewController:instagramPicker animated:YES];
@@ -238,6 +240,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
+
+#pragma mark CoreLocation delegate methods
+
 -(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
     UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [errorAlert show];
@@ -248,6 +253,18 @@
 {
     CLLocation *crnLoc = [locations lastObject];
     self.userLocation = crnLoc;
+}
+
+#pragma mark InstagramImagePickerDelegate
+
+-(void)imagePickerDidSelectImageWithURL:(NSString *)url {
+    
+    [self.foodLogImageView sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        self.foodLogImageView.image = image;
+        
+    }];
+    
 }
 
 
