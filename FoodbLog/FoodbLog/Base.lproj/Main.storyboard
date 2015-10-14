@@ -584,6 +584,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="foodImage" destination="b1k-jd-1yn" id="EFL-PK-Pa7"/>
+                                    <segue destination="7dW-Kc-fmt" kind="show" identifier="instagramImagePickerSegue" id="FGP-30-TNR"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -597,6 +598,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvo-RM-LxU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2865" y="-878"/>
+        </scene>
+        <!--Instagram Picker Detail View Controller-->
+        <scene sceneID="UFH-Yh-lIX">
+            <objects>
+                <viewController id="7dW-Kc-fmt" customClass="InstagramPickerDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gBX-td-8Zf"/>
+                        <viewControllerLayoutGuide type="bottom" id="NEF-8G-jmn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NGB-4G-7zQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bz9-tT-vvc">
+                                <rect key="frame" x="20" y="20" width="560" height="560"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="560" id="NWK-ab-PRv"/>
+                                    <constraint firstAttribute="width" constant="560" id="u6z-AV-Ffh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bz9-tT-vvc" firstAttribute="centerY" secondItem="NGB-4G-7zQ" secondAttribute="centerY" id="WfM-rZ-gGu"/>
+                            <constraint firstItem="Bz9-tT-vvc" firstAttribute="centerX" secondItem="NGB-4G-7zQ" secondAttribute="centerX" id="hue-Cq-Mls"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="instagramImageView" destination="Bz9-tT-vvc" id="Qa6-Vk-ODU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qG7-x4-O9J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3663" y="-908"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="fkR-2M-0yN">

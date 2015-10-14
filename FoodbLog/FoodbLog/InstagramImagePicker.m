@@ -8,6 +8,7 @@
 
 #import "InstagramImagePicker.h"
 #import "FoodImagePickerCustomCVC.h"
+#import "InstagramPickerDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -47,6 +48,12 @@
     
     
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.delegate imagePickerDidSelectImageWithURL:self.imageURLArray[indexPath.row]];
+    
 }
 
 

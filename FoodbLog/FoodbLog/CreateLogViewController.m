@@ -10,8 +10,10 @@
 #import <AFNetworking/AFNetworking.h>
 #import "InstagramImagePicker.h"
 #import <QuartzCore/QuartzCore.h>
+#import <CoreLocation/CoreLocation.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -26,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
 
+@property (nonatomic) CLLocationManager* locationManager;
+@property (nonatomic) CLLocation* userLocation;
+
 - (void)saveButtonTapped;
 - (void)setupNavigationBar;
 
@@ -36,6 +41,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
+    self.locationManager.delegate = self; // we set the delegate of locationManager to self.
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
    
     self.foodLogTitleTextField.delegate = self;
     self.restaurantSearchTextField.delegate = self;
@@ -91,6 +100,7 @@
     foodName = [foodName stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     NSString *urlString = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", foodName];
+
     
     AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc]init];
     [manager GET:urlString
@@ -112,6 +122,7 @@
              //pass the searchResults over to the CollectionViewController
              InstagramImagePicker* instagramPicker = [self.storyboard instantiateViewControllerWithIdentifier:@"InstagramImagePicker"];
              
+             instagramPicker.delegate = self;
              instagramPicker.imageURLArray = searchResults;
              
              [self.navigationController pushViewController:instagramPicker animated:YES];
@@ -131,7 +142,19 @@
 -(void)foursquareRequestForRestaurantName:(NSString*)restaurantName {
     
     
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=VENOVOCEM4E1QVRTGNOCNO40V32YHQ4FMRD0M3K4WBMYQWPS&client_secret=QVM22AMEWXEZ54VBHMGOHYE2JNMMLTQYKOKOSAK0JTGDQBLT&v=20130815&query=%@&intent=global", restaurantName];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=VENOVOCEM4E1QVRTGNOCNO40V32YHQ4FMRD0M3K4WBMYQWPS&client_secret=QVM22AMEWXEZ54VBHMGOHYE2JNMMLTQYKOKOSAK0JTGDQBLT&v=20130815&query=%@&ll=%f,%f&radius=2000", restaurantName, self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude];
+    
+    AFHTTPRequestOperationManager* manager = [[AFHTTPRequestOperationManager alloc]init];
+    [manager GET:urlString
+      parameters:nil
+         success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+            
+             
+         } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+             NSLog(@"%@", error);
+             
+         }];
+    
     
     
     
@@ -234,6 +257,32 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
+}
+
+#pragma mark CoreLocation delegate methods
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    UIAlertView *errorAlert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There was an error retrieving your location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [errorAlert show];
+    NSLog(@"Error: %@",error.description);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    CLLocation *crnLoc = [locations lastObject];
+    self.userLocation = crnLoc;
+}
+
+#pragma mark InstagramImagePickerDelegate
+
+-(void)imagePickerDidSelectImageWithURL:(NSString *)url {
+    
+    [self.foodLogImageView sd_setImageWithURL:[NSURL URLWithString:url] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        self.foodLogImageView.image = image;
+        
+    }];
+    
 }
 
 

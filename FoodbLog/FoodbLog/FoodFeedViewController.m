@@ -14,6 +14,8 @@
 
     @property (nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (nonatomic) NSMutableArray* instagramResultsArray;
+
 @end
 
 @implementation FoodFeedViewController
