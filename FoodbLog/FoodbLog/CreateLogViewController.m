@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *snapAPhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *searchAPicButton;
 
-@property (nonatomic) CLLocationManager* locationManager;
+@property (nonatomic, strong) CLLocationManager* locationManager;
 @property (nonatomic) CLLocation* userLocation;
 
 - (void)saveButtonTapped;
@@ -42,9 +42,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     self.locationManager = [[CLLocationManager alloc]init]; // initializing locationManager
-    self.locationManager.delegate = self; // we set the delegate of locationManager to self.
+    [self.locationManager setDelegate:self]; // we set the delegate of locationManager to self.
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestAlwaysAuthorization];
+
+    [self.locationManager startUpdatingLocation];
    
     self.foodLogTitleTextField.delegate = self;
     self.restaurantSearchTextField.delegate = self;
@@ -149,9 +153,12 @@
       parameters:nil
          success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
             
+             NSLog(@"you are at %f and %f with %@", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude, responseObject);
+             
              
          } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
              NSLog(@"%@", error);
+                NSLog(@"you are at %f and %f", self.userLocation.coordinate.latitude, self.userLocation.coordinate.longitude);
              
          }];
     
@@ -236,7 +243,7 @@
 - (IBAction)searchAPicOnInstagramButtonTapped:(UIButton *)sender {
     
     [self instagramRequestForTag:self.foodLogTitleTextField.text];
-
+    [self foursquareRequestForRestaurantName:@"traif"];
 }
 
 #pragma mark - Save button 
