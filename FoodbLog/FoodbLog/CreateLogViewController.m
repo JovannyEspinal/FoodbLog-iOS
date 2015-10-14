@@ -196,6 +196,18 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(UIImage *)capture{
+    UIGraphicsBeginImageContext(self.view.bounds.size);
+    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *imageView = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    UIImageWriteToSavedPhotosAlbum(imageView, nil, nil, nil); //if you need to save
+    return imageView;
+    
+    
+}
+
+
 #pragma mark - search a pic on instagram method
 
 - (IBAction)searchAPicOnInstagramButtonTapped:(UIButton *)sender {
@@ -213,6 +225,12 @@
     foodLog[@"name"] = self.foodLogTitleTextField.text;
     //foodLog[@"notes"] = self.foodLogNotesTextField.text; // this property has not been created yet inside the VC
     [foodLog saveInBackground];
+    
+    if (self.foodLogImageView.image != nil) {
+        [self capture];
+    }
+    //UIImageWriteToSavedPhotosAlbum(self.foodLogImageView.image, nil, nil, nil); //if you need to save
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
