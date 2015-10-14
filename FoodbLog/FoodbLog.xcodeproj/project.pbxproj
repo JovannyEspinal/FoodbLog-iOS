@@ -17,7 +17,6 @@
 		29E25D801BCAC9D50015A16F /* CreateLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29E25D7F1BCAC9D50015A16F /* CreateLogViewController.m */; settings = {ASSET_TAGS = (); }; };
 		29F703611BCB923F009B7A82 /* FoodbLogCustomCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 29F703601BCB923F009B7A82 /* FoodbLogCustomCVC.m */; settings = {ASSET_TAGS = (); }; };
 		3E3A6C939B0289FFD1210131 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD7706AE13EB5BDBDB3BC628 /* libPods.a */; };
-		501E0FED1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501E0FEC1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		50A3C2C41BCAE4AD0077F79B /* InstagramImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */; settings = {ASSET_TAGS = (); }; };
 		50D767B21BCC785000C82B8B /* FoodbLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D767B11BCC785000C82B8B /* FoodbLog.m */; settings = {ASSET_TAGS = (); }; };
 		50D767B51BCC7FFF00C82B8B /* FoodbLogCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D767B41BCC7FFF00C82B8B /* FoodbLogCustomHeader.m */; settings = {ASSET_TAGS = (); }; };
@@ -64,8 +63,6 @@
 		29F7035F1BCB923F009B7A82 /* FoodbLogCustomCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodbLogCustomCVC.h; sourceTree = "<group>"; };
 		29F703601BCB923F009B7A82 /* FoodbLogCustomCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoodbLogCustomCVC.m; sourceTree = "<group>"; };
 		4F3DE19BDA436F961CEABBD8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		501E0FEB1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramPickerDetailViewController.h; sourceTree = "<group>"; };
-		501E0FEC1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramPickerDetailViewController.m; sourceTree = "<group>"; };
 		50A3C2C21BCAE4AD0077F79B /* InstagramImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramImagePicker.h; sourceTree = "<group>"; };
 		50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramImagePicker.m; sourceTree = "<group>"; };
 		50D767B01BCC785000C82B8B /* FoodbLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoodbLog.h; sourceTree = "<group>"; };
@@ -154,8 +151,6 @@
 				29E25D7F1BCAC9D50015A16F /* CreateLogViewController.m */,
 				50A3C2C21BCAE4AD0077F79B /* InstagramImagePicker.h */,
 				50A3C2C31BCAE4AD0077F79B /* InstagramImagePicker.m */,
-				501E0FEB1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.h */,
-				501E0FEC1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.m */,
 				50D767B31BCC7FFF00C82B8B /* FoodbLogCustomHeader.h */,
 				50D767B41BCC7FFF00C82B8B /* FoodbLogCustomHeader.m */,
 				50F7C67C1BCB08BA00A969D1 /* FoodFeedCustomCVC.h */,
@@ -384,7 +379,6 @@
 				29E25D4D1BCAB8480015A16F /* AppDelegate.m in Sources */,
 				50D767B81BCC895900C82B8B /* FoodFeedViewController.m in Sources */,
 				50F7C67E1BCB08BA00A969D1 /* FoodFeedCustomCVC.m in Sources */,
-				501E0FED1BCDE5EC00A58AB6 /* InstagramPickerDetailViewController.m in Sources */,
 				29E25D801BCAC9D50015A16F /* CreateLogViewController.m in Sources */,
 				29E25D4A1BCAB8480015A16F /* main.m in Sources */,
 			);
