@@ -8,6 +8,7 @@
 
 #import "InstagramImagePicker.h"
 #import "FoodImagePickerCustomCVC.h"
+#import "InstagramPickerDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
