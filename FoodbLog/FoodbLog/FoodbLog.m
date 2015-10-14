@@ -5,11 +5,12 @@
 //  Created by Jovanny Espinal on 10/12/15.
 //  Copyright © 2015 Ayuna Vogel. All rights reserved.
 //
+#import <Parse/Parse.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "FoodbLog.h"
 #import "FoodbLogCustomHeader.h"
 #import "FoodbLogCustomCVC.h"
-#import <QuartzCore/QuartzCore.h>
 
 @interface FoodbLog () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -28,6 +29,8 @@
     
     UICollectionViewFlowLayout *layout = self.collectionViewLayout;
     layout.itemSize = CGSizeMake(width, width +heightAdjustment);
+    
+    [self pullDataFromParse];
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -65,6 +68,35 @@
     
 }
 
+#pragma mark - Parse methods
+
+- (void)pullDataFromParse {
+    
+    // Create query
+    PFQuery *query = [PFQuery queryWithClassName:@"FoodLog"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        //NSLog(@"%@", objects);
+    }];
+
+    
+//    [query whereKey:kPAPActivityToUserKey equalTo:[PFUser currentUser]];
+//    [query whereKey:kPAPActivityFromUserKey notEqualTo:[PFUser currentUser]];
+//    [query whereKeyExists:kPAPActivityFromUserKey];
+//    [query includeKey:kPAPActivityFromUserKey];
+//    [query includeKey:kPAPActivityPhotoKey];
+//    [query orderByDescending:@"createdAt"];
+//    
+//    [query setCachePolicy:kPFCachePolicyNetworkOnly];
+//    
+//    // If no objects are loaded in memory, we look to the cache first to fill the table
+//    // and then subsequently do a query against the network.
+//    if (self.objects.count == 0 || ![[UIApplication sharedApplication].delegate performSelector:@selector(isParseReachable)]) {
+//        [query setCachePolicy:kPFCachePolicyCacheThenNetwork];
+//    }
+//    
+//    return query;
+}
 
 /*
  #pragma mark - Navigation

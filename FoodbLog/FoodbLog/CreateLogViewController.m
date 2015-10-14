@@ -235,17 +235,75 @@
     [self foursquareRequestForRestaurantName:@"traif"];
 }
 
+#pragma mark - save image data to Parse 
+
+- (void)saveImageDataToParseRemoteDatabase {
+    
+    UIImage *imageToBeSavedOnParse = self.foodLogImageView.image;
+    
+    // Convert to JPEG with 50% quality
+    NSData* data = UIImageJPEGRepresentation(imageToBeSavedOnParse, 0.5f);
+    PFFile *imageFileToBeSavedOnParse = [PFFile fileWithName:@"Image.jpg" data:data];
+    
+    // Save the image to Parse
+    
+    [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // The image has now been uploaded to Parse. Associate it with a new object
+            PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
+
+            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
+            
+            [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"Saved");
+                }
+                else{
+                    // Error
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+    }];
+}
+
 #pragma mark - Save button 
 
 - (void)saveButtonTapped {
     
+    UIImage *foodLogImageToBeSaved = self.foodLogImageView.image;
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = self.foodLogTitleTextField.text;
+    
+    // Convert to JPEG with 50% quality
+    NSData* data = UIImageJPEGRepresentation(foodLogImageToBeSaved, 0.5f);
+    PFFile *imageFileToBeSavedOnParse = [PFFile fileWithName:@"Image.jpg" data:data];
+    
+    // Save the image to Parse
+    
+    [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // The image has now been uploaded to Parse. Associate it with a new object
+            
+            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
+            
+            [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"Saved");
+                }
+                else{
+                    // Error
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+        }
+    }];
+    
     //foodLog[@"notes"] = self.foodLogNotesTextField.text; // this property has not been created yet inside the VC
     [foodLog saveInBackground];
     
-    UIImageWriteToSavedPhotosAlbum(self.foodLogImageView.image , nil, nil, nil); // saves the snapped images to the camera roll on the device
+    UIImageWriteToSavedPhotosAlbum(foodLogImageToBeSaved, nil, nil, nil); // saves the snapped images to the camera roll on the device
 
     
     [self dismissViewControllerAnimated:YES completion:nil];
