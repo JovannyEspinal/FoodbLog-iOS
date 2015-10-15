@@ -15,7 +15,7 @@
 #import "CreateLogViewController.h"
 #import "InstagramImagePicker.h"
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -72,6 +72,7 @@
     [self textFieldFormatting:self.restaurantSearchTextField];
     [self textFieldFormatting:self.recipeSearchTextField];
     
+    self.foodExperienceTextView.delegate = self;
     
     
 }
@@ -444,5 +445,8 @@
     
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+      [textView setText:@""];
+}
 
 @end
