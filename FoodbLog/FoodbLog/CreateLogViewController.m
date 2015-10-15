@@ -6,14 +6,16 @@
 //  Copyright © 2015 Ayuna Vogel. All rights reserved.
 //
 #import <Parse/Parse.h>
-#import "CreateLogViewController.h"
 #import <AFNetworking/AFNetworking.h>
-#import "InstagramImagePicker.h"
 #import <QuartzCore/QuartzCore.h>
 #import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate>
+@import UIKit;
+#import "CreateLogViewController.h"
+#import "InstagramImagePicker.h"
+
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -34,6 +36,8 @@
 
 - (void)saveButtonTapped;
 - (void)setupNavigationBar;
+
+- (BOOL)shouldPresentPhotoCaptureController;
 
 
 @end
@@ -84,7 +88,7 @@
 
 -(void)setupNavigationBar {
     
-    self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // is subject to change 
+    self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // is subject to change
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTapped)];
@@ -172,48 +176,127 @@
 #pragma mark - Image Picker Controller Delegate methods
 
 - (IBAction)snapAPhotoButtonTapped:(UIButton *)sender {
-    
-    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-    // imagePickerController.allowsEditing = YES;
-    [self presentViewController:self.imagePickerController animated:NO completion:nil];
 
-    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+    BOOL cameraDeviceAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+    BOOL photoLibraryAvailable = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary];
     
-}
-
-
-// checks if the device has a camera
-- (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType {
-    
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    if (cameraDeviceAvailable && photoLibraryAvailable) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                                 message:@"Device has no camera"
-                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *takePhoto;
+        UIAlertAction *choosePhoto;
+        UIAlertAction *cancelFoodLogPhotoTaking;
         
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-        [alertController addAction:okAction];
+        takePhoto = [UIAlertAction actionWithTitle:@"Take Photo"
+                                                 style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction *action) {
+                                                   [self shouldStartCameraController];
+                                               }];
+        choosePhoto = [UIAlertAction actionWithTitle:@"Choose Photo"
+                                               style:UIAlertActionStyleDefault
+                                             handler:^(UIAlertAction *action) {
+                                                 [self shouldStartPhotoLibraryPickerController];
+                                             }];
+        
+        cancelFoodLogPhotoTaking = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+            //NSLog(@"canceled");
+        }];
+        
+        [alertController addAction:takePhoto];
+        [alertController addAction:choosePhoto];
+        [alertController addAction:cancelFoodLogPhotoTaking];
+        
         [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        // if we don't have at least two options, we automatically show whichever is available (camera or roll)
+        [self shouldPresentPhotoCaptureController];
     }
     
-//    NSArray *mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:sourceType];
-//    if ([UIImagePickerController isSourceTypeAvailable:sourceType] && [mediaTypes count] > 0) {
-//        UIImagePickerController *picker = [[UIImagePickerController alloc]init];
-//        picker.mediaTypes = mediaTypes;
-//        picker.delegate = self;
-//        picker.allowsEditing = YES;
-//        picker.sourceType = sourceType;
-//        [self presentViewController:picker animated:YES completion:NULL];
-//    } else {
-//        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Error accessing media" message:@"Unsupported media source." preferredStyle:UIAlertControllerStyleAlert];
-//        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
-//        [alertController addAction:okAction];
-//        [self presentViewController:alertController animated:YES completion:nil];
-//    }
+    
+//    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
+//    // imagePickerController.allowsEditing = YES;
+//    [self presentViewController:self.imagePickerController animated:NO completion:nil];
+//
+//    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+    
 }
+
+- (BOOL)shouldPresentPhotoCaptureController {
+    BOOL presentedPhotoCaptureController = [self shouldStartCameraController];
+    
+    if (!presentedPhotoCaptureController) {
+        presentedPhotoCaptureController = [self shouldStartPhotoLibraryPickerController];
+    }
+    
+    return presentedPhotoCaptureController;
+}
+
+
+- (BOOL)shouldStartCameraController {
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) {
+        return NO;
+    }
+    
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]
+        && [[UIImagePickerController availableMediaTypesForSourceType:
+             UIImagePickerControllerSourceTypeCamera] containsObject:(NSString *)kUTTypeImage]) {
+        
+        cameraUI.mediaTypes = [NSArray arrayWithObject:(NSString *) kUTTypeImage];
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear]) {
+            cameraUI.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        } else if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+            cameraUI.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+        }
+        
+    } else {
+        return NO;
+    }
+    
+    cameraUI.showsCameraControls = YES;
+    cameraUI.delegate = self;
+    
+    [self presentViewController:cameraUI animated:YES completion:nil];
+    
+    return YES;
+}
+
+
+- (BOOL)shouldStartPhotoLibraryPickerController {
+    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == NO
+         && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum] == NO)) {
+        return NO;
+    }
+    
+    UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]
+        && [[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary] containsObject:(NSString *)kUTTypeImage]) {
+        
+        cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        cameraUI.mediaTypes = [NSArray arrayWithObject:(NSString *) kUTTypeImage];
+        
+    } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]
+               && [[UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum] containsObject:(NSString *)kUTTypeImage]) {
+        
+        cameraUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        cameraUI.mediaTypes = [NSArray arrayWithObject:(NSString *) kUTTypeImage];
+        
+    } else {
+        return NO;
+    }
+    
+    cameraUI.delegate = self;
+    
+    [self presentViewController:cameraUI animated:YES completion:nil];
+    
+    return YES;
+}
+
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
@@ -226,6 +309,16 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self shouldStartCameraController];
+    } else if (buttonIndex == 1) {
+        [self shouldStartPhotoLibraryPickerController];
+    }
 }
 
 
@@ -293,7 +386,7 @@
             
             [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
-                    NSLog(@"Saved");
+                    //NSLog(@"Saved");
                 }
                 else{
                     // Error

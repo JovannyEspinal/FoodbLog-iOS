@@ -21,6 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // maybe should be a logo image FoodbLog
+
     CGFloat leftAndRightPaddings = 32.0;
     CGFloat numberOfItemsPerRow = 3.0;
     CGFloat heightAdjustment = 30.0;
