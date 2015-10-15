@@ -10,6 +10,7 @@
 
 @interface FoodbLog : UICollectionViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *foodbLogScreenImage;
 
 
 @end

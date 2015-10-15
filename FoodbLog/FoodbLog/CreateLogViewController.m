@@ -272,6 +272,7 @@
 - (void)saveButtonTapped {
     
     UIImage *foodLogImageToBeSaved = self.foodLogImageView.image;
+    
     // sending data to and storing in in Parse. This is a test version.
     PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
     foodLog[@"name"] = self.foodLogTitleTextField.text;

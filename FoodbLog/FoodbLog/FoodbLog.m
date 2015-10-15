@@ -46,6 +46,13 @@
     
     FoodbLogCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodbLogCell" forIndexPath:indexPath];
     
+    cell.layer.masksToBounds = YES;
+    // [cell.foodbLogImage sd_setImageWithURL:[NSURL URLWithString:self.imageURLArray[indexPath.row]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        cell.foodbLogImage.image = image;
+//    }];
+
+    
+    
     return cell;
 }
 
