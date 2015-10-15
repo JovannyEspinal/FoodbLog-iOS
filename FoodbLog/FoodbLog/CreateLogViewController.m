@@ -13,7 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIImage *foodLogImage;
 @property (nonatomic) IBOutlet UITextField *restaurantSearchTextField;
 @property (weak, nonatomic) IBOutlet UITextField *recipeSearchTextField;
+@property (weak, nonatomic) IBOutlet UITextView *foodExperienceTextView;
 
 @property (nonatomic) UIImagePickerController *imagePickerController;
 @property (copy, nonatomic) NSString *lastChosenMediaType;
@@ -52,6 +53,7 @@
    
     self.foodLogTitleTextField.delegate = self;
     self.restaurantSearchTextField.delegate = self;
+    self.recipeSearchTextField.delegate = self;
     
     [self setupNavigationBar];
     
@@ -335,6 +337,13 @@
         
     }];
     
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    
+    return YES;
 }
 
 
