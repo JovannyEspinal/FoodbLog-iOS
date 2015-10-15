@@ -71,6 +71,16 @@
     [self textFieldFormatting:self.foodLogTitleTextField];
     [self textFieldFormatting:self.restaurantSearchTextField];
     [self textFieldFormatting:self.recipeSearchTextField];
+    
+    
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    self.foodLogImageView.layer.masksToBounds = YES;
+    self.foodLogImageView.layer.cornerRadius = 10;
 }
 
 #pragma mark - Formatting Methods
@@ -302,6 +312,8 @@
     
     UIImage *foodPhotoImage = [info valueForKey:UIImagePickerControllerOriginalImage];
     self.foodLogImageView.image = foodPhotoImage;
+    self.foodLogImageView.layer.masksToBounds = YES;
+    self.foodLogImageView.layer.cornerRadius = 10;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 
@@ -430,13 +442,6 @@
         
     }];
     
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField{
-    
-    [textField resignFirstResponder];
-    
-    return YES;
 }
 
 

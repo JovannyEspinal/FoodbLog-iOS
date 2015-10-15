@@ -36,7 +36,7 @@
                                 <rect key="frame" x="132" y="320" width="335" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -345,7 +345,7 @@
                                 <rect key="frame" x="133" y="320" width="335" height="24"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -390,41 +390,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="goJ-jb-YRV" userLabel="UIViewForFoodImage">
-                                <rect key="frame" x="200" y="127" width="200" height="200"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                        <animations/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="2Rd-Tz-N2z"/>
-                                            <constraint firstAttribute="width" constant="200" id="zsA-Vf-Qee"/>
-                                        </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="2Rd-Tz-N2z"/>
-                                                <exclude reference="zsA-Vf-Qee"/>
-                                            </mask>
-                                        </variation>
-                                    </imageView>
-                                </subviews>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="axR-oS-lFg" firstAttribute="leading" secondItem="goJ-jb-YRV" secondAttribute="leading" id="D96-78-PpU"/>
-                                    <constraint firstItem="axR-oS-lFg" firstAttribute="top" secondItem="goJ-jb-YRV" secondAttribute="top" id="HdN-NS-mxE"/>
-                                    <constraint firstItem="axR-oS-lFg" firstAttribute="centerX" secondItem="goJ-jb-YRV" secondAttribute="centerX" id="XZ8-VF-CqG"/>
-                                    <constraint firstAttribute="trailing" secondItem="axR-oS-lFg" secondAttribute="trailing" id="YQ5-gu-3nb"/>
-                                    <constraint firstAttribute="bottom" secondItem="axR-oS-lFg" secondAttribute="bottom" id="bod-qZ-IfO"/>
-                                    <constraint firstAttribute="width" constant="200" id="ifc-rw-7w8"/>
-                                    <constraint firstAttribute="height" constant="200" id="nRy-n7-OL1"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="XZ8-VF-CqG"/>
-                                    </mask>
-                                </variation>
-                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search For Restaurant" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-l0-noz">
                                 <rect key="frame" x="213" y="335" width="175" height="30"/>
                                 <animations/>
@@ -483,36 +448,52 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="plate" translatesAutoresizingMaskIntoConstraints="NO" id="axR-oS-lFg">
+                                <rect key="frame" x="200" y="127" width="200" height="200"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="2Rd-Tz-N2z"/>
+                                    <constraint firstAttribute="height" constant="200" id="BeC-du-voz"/>
+                                    <constraint firstAttribute="width" constant="200" id="w3F-NN-Uh4"/>
+                                    <constraint firstAttribute="width" constant="200" id="zsA-Vf-Qee"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2Rd-Tz-N2z"/>
+                                        <exclude reference="zsA-Vf-Qee"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="goJ-jb-YRV" firstAttribute="top" secondItem="O70-xC-XVh" secondAttribute="bottom" constant="17" id="1bg-ep-yxK"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="16" id="1gk-Ch-Hyl"/>
                             <constraint firstItem="Xgl-b7-A96" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="250-mo-Pp1"/>
-                            <constraint firstItem="a2K-lM-gcm" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="4LS-8f-bJm"/>
                             <constraint firstItem="Xgl-b7-A96" firstAttribute="top" secondItem="j5v-l0-noz" secondAttribute="bottom" constant="25" id="6Mw-SJ-tUU"/>
                             <constraint firstItem="Ro1-YH-qQS" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="15" id="CXs-Gk-fBS"/>
+                            <constraint firstItem="Ro1-YH-qQS" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="Cb0-gL-7gg"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="16" id="D7R-iY-0GW"/>
                             <constraint firstItem="Ro1-YH-qQS" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leadingMargin" constant="8" id="Ejq-7k-DU3"/>
+                            <constraint firstItem="j5v-l0-noz" firstAttribute="top" secondItem="axR-oS-lFg" secondAttribute="bottom" constant="8" id="GCO-Tp-31N"/>
                             <constraint firstItem="Yfc-yA-9O0" firstAttribute="top" secondItem="S4o-H3-64W" secondAttribute="bottom" constant="8" id="GYo-5y-Oya"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="GfL-jx-n6R"/>
                             <constraint firstItem="Xgl-b7-A96" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="HSu-rc-MSG"/>
                             <constraint firstAttribute="trailing" secondItem="S4o-H3-64W" secondAttribute="trailing" constant="20" id="Kyh-rL-2CL"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="MsU-5r-RDZ"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="top" secondItem="O70-xC-XVh" secondAttribute="bottom" constant="17" id="O0s-fg-xZd"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="trailing" secondItem="zCx-ga-EMq" secondAttribute="trailingMargin" id="Obl-hP-YA7"/>
+                            <constraint firstItem="axR-oS-lFg" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="Q1A-nB-YiR"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="top" secondItem="Xgl-b7-A96" secondAttribute="bottom" constant="8" id="Rx3-JJ-pNK"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="top" secondItem="r4P-YI-o1Z" secondAttribute="bottom" constant="52" id="Y4C-Pj-16i"/>
                             <constraint firstItem="j5v-l0-noz" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="ZKw-t4-n02"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leadingMargin" id="ZvF-ny-r8m"/>
                             <constraint firstItem="Xgl-b7-A96" firstAttribute="leading" secondItem="j5v-l0-noz" secondAttribute="leading" id="eyr-Zf-Aqm"/>
-                            <constraint firstItem="Ro1-YH-qQS" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="fOC-1K-wbk"/>
                             <constraint firstItem="S4o-H3-64W" firstAttribute="leading" secondItem="zCx-ga-EMq" secondAttribute="leading" constant="20" id="hgm-i2-gwn"/>
-                            <constraint firstItem="j5v-l0-noz" firstAttribute="top" secondItem="goJ-jb-YRV" secondAttribute="bottom" constant="8" id="jB9-kr-kyM"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="lRQ-Tl-mp0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a2K-lM-gcm" secondAttribute="trailing" constant="8" id="qQG-Lg-KRZ"/>
                             <constraint firstItem="O70-xC-XVh" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="rJS-44-Zk1"/>
-                            <constraint firstItem="goJ-jb-YRV" firstAttribute="centerX" secondItem="zCx-ga-EMq" secondAttribute="centerX" id="sAU-MD-HEP"/>
+                            <constraint firstItem="a2K-lM-gcm" firstAttribute="centerY" secondItem="axR-oS-lFg" secondAttribute="centerY" id="sQc-c3-obA"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
