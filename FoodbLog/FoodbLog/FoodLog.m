@@ -7,16 +7,15 @@
 //
 #import <Parse/PFObject+Subclass.h>
 
-#import "FDBLogData.h"
+#import "FoodLog.h"
 
-@implementation FDBLogData
+@implementation FoodLog
 
-@dynamic foodLogDishTitle;
-@dynamic foodLogImageFile;
-@dynamic foodLogImageTitle;
-@dynamic foodLogRestaurantTitle;
-@dynamic foodLogRecipeTitle;
-@dynamic foodLogNotesText;
+@dynamic name;
+@dynamic image;
+@dynamic notes;
+@dynamic restaurantName;
+@dynamic recipeName;
 
 + (NSString *)parseClassName {
     return @"FoodLog";

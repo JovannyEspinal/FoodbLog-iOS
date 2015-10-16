@@ -8,13 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FDBLogData.h"
+#import "FoodLog.h"
 #import "FoodbLogCustomCell.h"
 
 @interface FoodbLogCollectionVC : UICollectionViewController
-
-@property (nonatomic, strong) PFObject *aFoodLog;
-
 
 
 @end

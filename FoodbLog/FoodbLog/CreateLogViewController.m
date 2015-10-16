@@ -14,9 +14,9 @@
 @import UIKit;
 #import "CreateLogViewController.h"
 #import "InstagramImagePicker.h"
-#import "FDBLogData.h"
+#import "FoodLog.h"
 
-@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
+@interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
 
 
 @property (nonatomic) IBOutlet UITextField *foodLogTitleTextField;
@@ -76,6 +76,7 @@
     [self textFieldFormatting:self.restaurantSearchTextField];
     [self textFieldFormatting:self.recipeSearchTextField];
     
+    self.foodExperienceTextView.delegate = self;
     
     
 }
@@ -102,7 +103,7 @@
 
 -(void)setupNavigationBar {
     
-    self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // is subject to change
+    self.navigationItem.title = @"🍴🍜🍟🍤🍴";
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelButtonTapped)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTapped)];
@@ -225,14 +226,6 @@
         // if we don't have at least two options, we automatically show whichever is available (camera or roll)
         [self shouldPresentPhotoCaptureController];
     }
-    
-    
-//    self.imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    self.imagePickerController.modalPresentationStyle = UIModalPresentationCurrentContext;
-//    // imagePickerController.allowsEditing = YES;
-//    [self presentViewController:self.imagePickerController animated:NO completion:nil];
-//
-//    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
     
 }
 
@@ -361,9 +354,8 @@
     [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // The image has now been uploaded to Parse. Associate it with a new object
-            PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
-
-            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
+            FoodLog *foodLog = [[FoodLog alloc] init];
+            foodLog.image = imageFileToBeSavedOnParse;
             
             [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (!error) {
@@ -413,46 +405,43 @@
     
     
     
-//    aFoodLog.foodLogImageTitle = ;
-//    aFoodLog.foodLogRestaurantTitle = ;
-//    aFoodLog.foodLogRecipeTitle =
-//    aFoodLog.foodLogNotesText = ;
-    
     
     UIImage *foodLogImageToBeSaved = self.foodLogImageView.image;
-    
-    // sending data to and storing in in Parse. This is a test version.
-    PFObject *foodLog = [PFObject objectWithClassName:@"FoodLog"];
-    foodLog[@"name"] = self.foodLogTitleTextField.text;
-    
     // Convert to JPEG with 50% quality
     NSData* data = UIImageJPEGRepresentation(foodLogImageToBeSaved, 0.5f);
-    PFFile *imageFileToBeSavedOnParse = [PFFile fileWithName:@"Image.jpg" data:data];
-    
-    // Save the image to Parse
+    PFFile *imageFileToBeSavedOnParse = [PFFile fileWithData:data contentType:@"image/png"];
+
+    // sending data to and storing in in Parse. This is a test version.
+    FoodLog *foodLog = [[FoodLog alloc] init];
+    foodLog.name = self.foodLogTitleTextField.text;
+    foodLog.image = imageFileToBeSavedOnParse;
     
     // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
     self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
     }];
-
-    [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            // The image has now been uploaded to Parse. Associate it with a new object
-            
-            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
-            
-            [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if (!error) {
-                    //NSLog(@"Saved");
-                }
-                else{
-                    // Error
-                    NSLog(@"Error: %@ %@", error, [error userInfo]);
-                }
-            }];
-        }
+    
+    [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
+
+//    [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // The image has now been uploaded to Parse. Associate it with a new object
+//            
+//            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
+//            
+//            [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    //NSLog(@"Saved");
+//                }
+//                else{
+//                    // Error
+//                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+//                }
+//            }];
+//        }
+//    }];
 
 
     
@@ -462,7 +451,6 @@
     UIImageWriteToSavedPhotosAlbum(foodLogImageToBeSaved, nil, nil, nil); // saves the snapped images to the camera roll on the device
 
     
-    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
@@ -492,5 +480,8 @@
     
 }
 
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+      [textView setText:@""];
+}
 
 @end

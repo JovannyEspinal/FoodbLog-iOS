@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <AFNetworking/AFNetworking.h>
+#import "FoodLog.h"
 
 @interface AppDelegate ()
 
@@ -18,14 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    
-    
-    
-    
-
     [self setParseDatabase];
-    
     
     return YES;
 }
@@ -39,6 +33,8 @@
     // Initialize Parse.
     [Parse setApplicationId:@"rjpud8TLiUXDlfbMapE2epIj6lwTPafkhWQInPs3"
                   clientKey:@"je9HpthLghFr4MRHSvWTLlBBxJVb3udoZ8XmTisz"];
+    
+    [FoodLog registerSubclass];
     
     // [Optional] Track statistics around application opens.
     // This method should be inside the didFinishLaunchingWithOptions method.

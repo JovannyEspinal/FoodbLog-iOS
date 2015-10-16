@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ParseUI/PFImageView.h>
 
 @interface FoodbLogCustomCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *foodbLogImageInTheFoodbLogCell;
+@property (weak, nonatomic) IBOutlet PFImageView *foodbLogImageInTheFoodbLogCell;
 
 @property (weak, nonatomic) IBOutlet UILabel *foodbLogNameLabel;
 

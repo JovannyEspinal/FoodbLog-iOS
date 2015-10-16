@@ -11,9 +11,11 @@
 #import "FoodbLogCollectionVC.h"
 #import "FoodbLogCustomHeader.h"
 #import "FoodbLogCustomCell.h"
+#import "FoodLog.h"
 
 @interface FoodbLogCollectionVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (nonatomic) NSArray *allFoodLogObjects;
 
 @end
 
@@ -22,8 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.navigationItem.title = @"🍴🍜🍟🍤🍴"; // maybe should be a logo image FoodbLog
-
     CGFloat leftAndRightPaddings = 32.0;
     CGFloat numberOfItemsPerRow = 3.0;
     CGFloat heightAdjustment = 30.0;
@@ -32,6 +32,11 @@
     
     UICollectionViewFlowLayout *layout = self.collectionViewLayout;
     layout.itemSize = CGSizeMake(width, width +heightAdjustment);
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
     [self pullDataFromParse];
 }
@@ -42,12 +47,16 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     
-    return 6;
+    return self.allFoodLogObjects.count;
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     FoodbLogCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodbLogCell" forIndexPath:indexPath];
+    
+    FoodLog *log = self.allFoodLogObjects[indexPath.row];
+    cell.foodbLogImageInTheFoodbLogCell.file = log.image;
+    [cell.foodbLogImageInTheFoodbLogCell loadInBackground];
     
     cell.layer.masksToBounds = YES;
 
@@ -77,15 +86,11 @@
 
 - (void)pullDataFromParse {
     
-    // Create query
-    PFQuery *query = [PFQuery queryWithClassName:@"FoodLog"];
-    
+    PFQuery *query = [PFQuery queryWithClassName:[FoodLog parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        
-        PFFile *imageFileFromParse = [[objects objectAtIndex:indexPath] objectForKey:@"image"];
-        
-     }];
-
+        self.allFoodLogObjects = objects;
+        [self.collectionView reloadData];
+    }];
     
 }
 
