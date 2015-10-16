@@ -10,7 +10,7 @@
 #import <Parse/Parse.h>
 
 @interface FDBLogData : PFObject<PFSubclassing>
-+ (NSString *)FoodLog; //ParseClassName on Parse
++ (NSString *)parseClassName; 
 
 // the names of the properties for now
 @property (nonatomic, strong) NSString *foodLogDishTitle;
@@ -21,9 +21,6 @@
 @property (nonatomic, strong) NSString *foodLogNotesText;
 
 //- (id)initWithFoodLogObject:(PFObject *)aFoodLog;
-
-@property (nonatomic, strong) PFObject *aFoodLog;
-
 
 
 @end
