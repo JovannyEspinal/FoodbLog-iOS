@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodbLogCustomCVC : UICollectionViewCell
+@interface FoodbLogCustomCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *foodbLogImage;
+@property (weak, nonatomic) IBOutlet UIImageView *foodbLogImageInTheFoodbLogCell;
+
 @property (weak, nonatomic) IBOutlet UILabel *foodbLogNameLabel;
 
 @end

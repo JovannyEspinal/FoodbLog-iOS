@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fDy-ci-PHG">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -96,10 +96,10 @@
             </objects>
             <point key="canvasLocation" x="996" y="-1417"/>
         </scene>
-        <!--Food bLog-->
+        <!--Food Logs CustomCollectionVC-->
         <scene sceneID="Won-OC-9GV">
             <objects>
-                <collectionViewController title="Food bLog" id="Ej6-zJ-2Ib" customClass="FoodbLog" sceneMemberID="viewController">
+                <collectionViewController title="Food bLog" id="Ej6-zJ-2Ib" userLabel="Food Logs CustomCollectionVC" customClass="FoodbLogCollectionVC" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pCR-CD-WKv">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                             <inset key="sectionInset" minX="8" minY="5" maxX="8" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodbLogCell" id="I7U-Qz-06Z" customClass="FoodbLogCustomCVC">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="foodbLogCell" id="I7U-Qz-06Z" customClass="FoodbLogCustomCell">
                                 <rect key="frame" x="8" y="113" width="175" height="175"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -135,7 +135,7 @@
                                     <constraint firstAttribute="trailing" secondItem="LL9-TZ-IJK" secondAttribute="trailing" id="eb4-ly-XgX"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="foodbLogImage" destination="LL9-TZ-IJK" id="6tr-PL-yoD"/>
+                                    <outlet property="foodbLogImageInTheFoodbLogCell" destination="LL9-TZ-IJK" id="Qvq-Uc-3Bb"/>
                                     <segue destination="Jsb-ww-IDP" kind="show" id="951-2R-381"/>
                                 </connections>
                             </collectionViewCell>
@@ -168,7 +168,7 @@
                             <outlet property="delegate" destination="Ej6-zJ-2Ib" id="sTd-I6-2Ys"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Food bLOG" id="VaL-yh-FpB">
+                    <navigationItem key="navigationItem" id="VaL-yh-FpB">
                         <barButtonItem key="rightBarButtonItem" image="Fork-32" id="PxL-bH-ed2">
                             <color key="tintColor" red="1" green="0.65156431479999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -214,7 +214,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="testCell" id="C0x-uH-KmF" customClass="FoodFeedCustomCVC">
-                                        <rect key="frame" x="20" y="30.5" width="280" height="380"/>
+                                        <rect key="frame" x="20" y="31" width="280" height="380"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="380"/>
@@ -594,7 +594,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6yX-jP-zQf" id="Fjl-Fn-Bhc">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <animations/>
                                 </tableViewCellContentView>
@@ -631,10 +631,10 @@
             </objects>
             <point key="canvasLocation" x="-701" y="-276"/>
         </scene>
-        <!--Food bLOG-->
+        <!--Food Blog NavController-->
         <scene sceneID="W2f-5x-Url">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gS1-7B-Vab" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gS1-7B-Vab" userLabel="Food Blog NavController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Food bLOG" id="0cq-Iv-nhg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Prc-zH-yCb">

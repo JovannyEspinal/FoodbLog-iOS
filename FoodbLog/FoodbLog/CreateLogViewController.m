@@ -14,6 +14,7 @@
 @import UIKit;
 #import "CreateLogViewController.h"
 #import "InstagramImagePicker.h"
+#import "FDBLogData.h"
 
 @interface CreateLogViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate, InstagramImagePickerDelegate, UIActionSheetDelegate>
 
@@ -38,6 +39,9 @@
 - (void)setupNavigationBar;
 
 - (BOOL)shouldPresentPhotoCaptureController;
+
+@property (nonatomic, assign) UIBackgroundTaskIdentifier fileUploadBackgroundTaskId;
+@property (nonatomic, assign) UIBackgroundTaskIdentifier photoPostBackgroundTaskId;
 
 
 @end
@@ -377,6 +381,43 @@
 #pragma mark - Save button 
 
 - (void)saveButtonTapped {
+//    
+//    FDBLogData *aFoodLog = [FDBLogData object];
+//    aFoodLog.foodLogDishTitle = self.foodLogTitleTextField.text;
+//    
+//    UIImage *foodLogImageToBeSaved = self.foodLogImageView.image;
+//    NSData* data = UIImageJPEGRepresentation(foodLogImageToBeSaved, 0.5f);
+//    aFoodLog.foodLogImageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+//    
+////    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+//        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+//    }];
+//    
+//    [aFoodLog.foodLogImageFile  saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // The image has now been uploaded to Parse. Associate it with a new object
+//            
+//            [foodLog setObject:imageFileToBeSavedOnParse forKey:@"image"];
+//            
+//            [foodLog saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (!error) {
+//                    //NSLog(@"Saved");
+//                }
+//                else{
+//                    // Error
+//                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+//                }
+//            }];
+//        }
+//    }];
+    
+    
+    
+//    aFoodLog.foodLogImageTitle = ;
+//    aFoodLog.foodLogRestaurantTitle = ;
+//    aFoodLog.foodLogRecipeTitle =
+//    aFoodLog.foodLogNotesText = ;
+    
     
     UIImage *foodLogImageToBeSaved = self.foodLogImageView.image;
     
@@ -390,6 +431,11 @@
     
     // Save the image to Parse
     
+    // Request a background execution task to allow us to finish uploading the photo even if the app is backgrounded
+    self.fileUploadBackgroundTaskId = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        [[UIApplication sharedApplication] endBackgroundTask:self.fileUploadBackgroundTaskId];
+    }];
+
     [imageFileToBeSavedOnParse saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
             // The image has now been uploaded to Parse. Associate it with a new object
@@ -407,6 +453,8 @@
             }];
         }
     }];
+
+
     
     //foodLog[@"notes"] = self.foodLogNotesTextField.text; // this property has not been created yet inside the VC
     [foodLog saveInBackground];

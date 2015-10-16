@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FoodbLog : UICollectionViewController
+#import "FDBLogData.h"
+#import "FoodbLogCustomCell.h"
 
-@property (weak, nonatomic) IBOutlet UIImageView *foodbLogScreenImage;
+@interface FoodbLogCollectionVC : UICollectionViewController
+
+@property (nonatomic, strong) PFObject *aFoodLog;
+
 
 
 @end

@@ -8,16 +8,16 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
-#import "FoodbLog.h"
+#import "FoodbLogCollectionVC.h"
 #import "FoodbLogCustomHeader.h"
-#import "FoodbLogCustomCVC.h"
+#import "FoodbLogCustomCell.h"
 
-@interface FoodbLog () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface FoodbLogCollectionVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 
 @end
 
-@implementation FoodbLog
+@implementation FoodbLogCollectionVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,7 +47,7 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    FoodbLogCustomCVC *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodbLogCell" forIndexPath:indexPath];
+    FoodbLogCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodbLogCell" forIndexPath:indexPath];
     
     cell.layer.masksToBounds = YES;
     // [cell.foodbLogImage sd_setImageWithURL:[NSURL URLWithString:self.imageURLArray[indexPath.row]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -82,6 +82,8 @@
 
 - (void)pullDataFromParse {
     
+    
+    
     // Create query
     PFQuery *query = [PFQuery queryWithClassName:@"FoodLog"];
     
@@ -90,22 +92,8 @@
     }];
 
     
-//    [query whereKey:kPAPActivityToUserKey equalTo:[PFUser currentUser]];
-//    [query whereKey:kPAPActivityFromUserKey notEqualTo:[PFUser currentUser]];
-//    [query whereKeyExists:kPAPActivityFromUserKey];
-//    [query includeKey:kPAPActivityFromUserKey];
-//    [query includeKey:kPAPActivityPhotoKey];
-//    [query orderByDescending:@"createdAt"];
-//    
-//    [query setCachePolicy:kPFCachePolicyNetworkOnly];
-//    
-//    // If no objects are loaded in memory, we look to the cache first to fill the table
-//    // and then subsequently do a query against the network.
-//    if (self.objects.count == 0 || ![[UIApplication sharedApplication].delegate performSelector:@selector(isParseReachable)]) {
-//        [query setCachePolicy:kPFCachePolicyCacheThenNetwork];
-//    }
-//    
-//    return query;
+    
+    PFFile *imageFile = [self.aFoodLog objectForKey:@"image"];
 }
 
 /*
