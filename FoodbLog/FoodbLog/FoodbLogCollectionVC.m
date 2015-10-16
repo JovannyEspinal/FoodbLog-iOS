@@ -50,12 +50,7 @@
     FoodbLogCustomCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"foodbLogCell" forIndexPath:indexPath];
     
     cell.layer.masksToBounds = YES;
-    // [cell.foodbLogImage sd_setImageWithURL:[NSURL URLWithString:self.imageURLArray[indexPath.row]] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        cell.foodbLogImage.image = image;
-//    }];
 
-    
-    
     return cell;
 }
 
@@ -82,18 +77,16 @@
 
 - (void)pullDataFromParse {
     
-    
-    
     // Create query
     PFQuery *query = [PFQuery queryWithClassName:@"FoodLog"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        //NSLog(@"%@", objects);
-    }];
+        
+        PFFile *imageFileFromParse = [[objects objectAtIndex:indexPath] objectForKey:@"image"];
+        
+     }];
 
     
-    
-    PFFile *imageFile = [self.aFoodLog objectForKey:@"image"];
 }
 
 /*

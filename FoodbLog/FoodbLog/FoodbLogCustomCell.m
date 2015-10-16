@@ -9,8 +9,7 @@
 
 #import "FoodbLogCustomCell.h"
 
-@implementation FoodbLogCustomCVC : UICollectionViewCell 
-
+@implementation FoodbLogCustomCell
 
 
 

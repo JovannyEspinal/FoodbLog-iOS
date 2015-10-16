@@ -10,7 +10,6 @@
 #import "FDBLogData.h"
 
 @implementation FDBLogData
-@synthesize aFoodLog;
 
 @dynamic foodLogDishTitle;
 @dynamic foodLogImageFile;
@@ -18,8 +17,9 @@
 @dynamic foodLogRestaurantTitle;
 @dynamic foodLogRecipeTitle;
 @dynamic foodLogNotesText;
-+ (NSString *)FoodLog {
-    return @"FDBLogData";
+
++ (NSString *)parseClassName {
+    return @"FoodLog";
 }
 
 
